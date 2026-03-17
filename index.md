@@ -50,26 +50,29 @@ This is my GitHub Pages site powered by Jekyll.
 		align-items: end;
 	}
 
-	#number-randomiser .field-row {
-		display: flex;
-		flex-direction: column;
+	#randomiser-form .field-row {
+		display: grid;
 		gap: 0.35rem;
 	}
 
-	#number-randomiser label {
+	#randomiser-form label {
 		font-size: 0.95rem;
 		font-weight: 600;
 	}
 
-	#number-randomiser input {
+	#randomiser-form input {
 		border: 1px solid #c3cfda;
 		border-radius: 6px;
 		padding: 0.5rem 0.65rem;
 		font-size: 1rem;
 	}
 
-	#generate-btn {
+	#generate-btn,
+	#randomiser-error {
 		grid-column: 1 / -1;
+	}
+
+	#generate-btn {
 		justify-self: start;
 		padding: 0.55rem 0.9rem;
 		border: 0;
@@ -79,22 +82,21 @@ This is my GitHub Pages site powered by Jekyll.
 	}
 
 	#randomiser-error {
-		grid-column: 1 / -1;
 		min-height: 1.2rem;
 		margin: 0;
 		color: #b21f2d;
 		font-size: 0.9rem;
 	}
 
-	#number-randomiser .result-panel {
+	.result-panel {
 		margin-top: 1rem;
 		padding: 0.8rem;
 		border-radius: 8px;
-		background: #ffffff;
+		background: #fff;
 		border: 1px solid #d7e2eb;
 	}
 
-	#number-randomiser .result-label {
+	.result-label {
 		margin: 0;
 		font-size: 0.9rem;
 		color: #4f6479;
@@ -107,12 +109,12 @@ This is my GitHub Pages site powered by Jekyll.
 		line-height: 1.2;
 	}
 
-	#number-randomiser .history-panel {
+	.history-panel {
 		margin-top: 1rem;
 	}
 
-	#number-randomiser .history-panel h3 {
-		margin-bottom: 0.5rem;
+	.history-panel h3 {
+		margin: 0 0 0.5rem;
 		font-size: 1rem;
 	}
 
@@ -133,42 +135,39 @@ This is my GitHub Pages site powered by Jekyll.
 </style>
 
 <script>
-	(function () {
-		var history = [];
-		var form = document.getElementById('randomiser-form');
-		var minInput = document.getElementById('min-value');
-		var maxInput = document.getElementById('max-value');
-		var resultValue = document.getElementById('result-value');
-		var errorMessage = document.getElementById('randomiser-error');
-		var historyList = document.getElementById('history-list');
+	(() => {
+		const MAX_HISTORY = 10;
+		const history = [];
 
-		function renderHistory() {
+		const form = document.getElementById('randomiser-form');
+		const minInput = document.getElementById('min-value');
+		const maxInput = document.getElementById('max-value');
+		const resultValue = document.getElementById('result-value');
+		const errorMessage = document.getElementById('randomiser-error');
+		const historyList = document.getElementById('history-list');
+
+		const toInt = (input) => Number.parseInt(input.value, 10);
+		const setError = (message) => {
+			errorMessage.textContent = message;
+		};
+
+		const randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+
+		const renderHistory = () => {
 			historyList.innerHTML = '';
 
-			for (var i = 0; i < history.length; i += 1) {
-				var item = document.createElement('li');
-				item.textContent = String(history[i]);
+			history.forEach((value) => {
+				const item = document.createElement('li');
+				item.textContent = String(value);
 				historyList.appendChild(item);
-			}
-		}
+			});
+		};
 
-		function parseInteger(input) {
-			return Number.parseInt(input.value, 10);
-		}
-
-		function setError(message) {
-			errorMessage.textContent = message;
-		}
-
-		function generateRandomNumber(min, max) {
-			return Math.floor(Math.random() * (max - min + 1)) + min;
-		}
-
-		form.addEventListener('submit', function (event) {
+		form.addEventListener('submit', (event) => {
 			event.preventDefault();
 
-			var min = parseInteger(minInput);
-			var max = parseInteger(maxInput);
+			const min = toInt(minInput);
+			const max = toInt(maxInput);
 
 			if (Number.isNaN(min) || Number.isNaN(max)) {
 				setError('Enter valid whole numbers for minimum and maximum.');
@@ -181,14 +180,11 @@ This is my GitHub Pages site powered by Jekyll.
 			}
 
 			setError('');
-			var value = generateRandomNumber(min, max);
+			const value = randomInt(min, max);
 			resultValue.textContent = String(value);
 
 			history.unshift(value);
-			if (history.length > 10) {
-				history = history.slice(0, 10);
-			}
-
+			history.length = Math.min(history.length, MAX_HISTORY);
 			renderHistory();
 		});
 	})();
