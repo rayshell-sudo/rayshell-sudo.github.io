@@ -1,5 +1,5 @@
 //Create a random number generator
-
+//This function generates a random integer between the specified minimum and maximum values. The minimum value is inclusive, while the maximum value is exclusive. The function uses the Math.random() method to generate a random decimal number between 0 (inclusive) and 1 (exclusive), which is then scaled and shifted to fit the desired range of integers.
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
