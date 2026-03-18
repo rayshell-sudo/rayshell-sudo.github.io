@@ -1,0 +1,3 @@
+I prefer to use 4 spaces for indentation. I prefer camelCase for naming style.
+My preferred frameworks for python are Flask and Django. For JavaScript, I prefer React and Node.js. I also like to use Jekyll for static site generation.
+My preferred docstring or comment style is the Google style. I like to include a brief description of the function or class, followed by a more detailed explanation of the parameters and return values. I also like to include examples of how to use the function or class.
