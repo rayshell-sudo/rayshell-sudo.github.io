@@ -7,6 +7,10 @@ title: Home
 
 This is my GitHub Pages site powered by Jekyll.
 
+## Pages
+
+- [Dot Democracy MVP](/dot-democracy.html)
+
 ## Number Randomiser
 
 <section id="number-randomiser" aria-label="Number randomiser">
