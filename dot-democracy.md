@@ -7,6 +7,8 @@ title: Dot Democracy
 
 Use five dots to vote on the ideas below. Enter a name to identify your votes on this device.
 
+Admins can edit proposal titles at the bottom of this page without changing code.
+
 <section id="dot-democracy" aria-label="Dot democracy voting board">
     <form id="voter-form" novalidate>
         <label for="voter-name">Your name</label>
@@ -24,6 +26,23 @@ Use five dots to vote on the ideas below. Enter a name to identify your votes on
         </div>
         <ul id="proposal-list"></ul>
     </div>
+
+    <details id="admin-panel">
+        <summary>Admin Proposal Editor</summary>
+        <p class="admin-note">Changes are stored in this browser only. They do not sync across devices.</p>
+
+        <form id="admin-form" novalidate>
+            <ul id="admin-proposal-list" aria-live="polite"></ul>
+
+            <div class="admin-actions">
+                <button type="button" id="add-proposal-btn">Add Proposal</button>
+                <button type="submit" id="save-proposals-btn">Save Proposals</button>
+                <button type="button" id="reset-proposals-btn">Reset Defaults</button>
+            </div>
+
+            <p id="admin-message" role="status" aria-live="polite"></p>
+        </form>
+    </details>
 </section>
 
 <style>
@@ -60,7 +79,9 @@ Use five dots to vote on the ideas below. Enter a name to identify your votes on
     }
 
     #voter-form button,
-    .proposal-controls button {
+    .proposal-controls button,
+    .admin-actions button,
+    .admin-proposal-row button {
         border: 0;
         border-radius: 6px;
         padding: 0.55rem 0.85rem;
@@ -137,6 +158,66 @@ Use five dots to vote on the ideas below. Enter a name to identify your votes on
         font-weight: 700;
     }
 
+    #admin-panel {
+        margin-top: 1rem;
+        border: 1px solid #d7e2eb;
+        border-radius: 8px;
+        background: #fff;
+        padding: 0.8rem;
+    }
+
+    #admin-panel summary {
+        cursor: pointer;
+        font-weight: 700;
+    }
+
+    .admin-note {
+        margin: 0.75rem 0;
+        color: #39566f;
+        font-size: 0.92rem;
+    }
+
+    #admin-proposal-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 0.5rem;
+    }
+
+    .admin-proposal-row {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 0.5rem;
+        align-items: center;
+    }
+
+    .admin-proposal-row input {
+        border: 1px solid #c3cfda;
+        border-radius: 6px;
+        padding: 0.45rem 0.6rem;
+        font-size: 1rem;
+    }
+
+    .admin-proposal-row button {
+        background: #f0f4f8;
+        color: #243647;
+    }
+
+    .admin-actions {
+        margin-top: 0.8rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    #admin-message {
+        min-height: 1.2rem;
+        margin: 0.6rem 0 0;
+        color: #39566f;
+        font-size: 0.9rem;
+    }
+
     @media (max-width: 680px) {
         .voter-row {
             grid-template-columns: 1fr;
@@ -154,6 +235,14 @@ Use five dots to vote on the ideas below. Enter a name to identify your votes on
         .proposal-controls {
             justify-content: start;
         }
+
+        .admin-proposal-row {
+            grid-template-columns: 1fr;
+        }
+
+        .admin-actions button {
+            width: 100%;
+        }
     }
 </style>
 
@@ -161,7 +250,7 @@ Use five dots to vote on the ideas below. Enter a name to identify your votes on
     (() => {
         const MAX_VOTES_PER_USER = 5;
         const STORAGE_KEY = 'dot-democracy-mvp-v1';
-        const proposals = [
+        const defaultProposals = [
             { id: 'support-hours', title: 'Extend support hours' },
             { id: 'feature-requests', title: 'Public feature request board' },
             { id: 'docs-refresh', title: 'Refresh site documentation' },
@@ -176,30 +265,121 @@ Use five dots to vote on the ideas below. Enter a name to identify your votes on
         const activeUser = document.getElementById('active-user');
         const remainingVotes = document.getElementById('remaining-votes');
         const proposalList = document.getElementById('proposal-list');
+        const adminForm = document.getElementById('admin-form');
+        const adminProposalList = document.getElementById('admin-proposal-list');
+        const addProposalButton = document.getElementById('add-proposal-btn');
+        const resetProposalsButton = document.getElementById('reset-proposals-btn');
+        const adminMessage = document.getElementById('admin-message');
 
         const sanitizeName = (name) => name.trim().toLowerCase();
         const displayName = (name) => name.trim();
+        const deepClone = (value) => JSON.parse(JSON.stringify(value));
+
+        const makeSlug = (title) => {
+            const slug = title
+                .trim()
+                .toLowerCase()
+                .replace(/[^a-z0-9]+/g, '-')
+                .replace(/^-+|-+$/g, '');
+
+            return slug || 'proposal';
+        };
+
+        const normalizeProposals = (proposalListInput) => {
+            const source = Array.isArray(proposalListInput) ? proposalListInput : [];
+            const candidateProposals = source.length ? source : deepClone(defaultProposals);
+            const seenIds = new Set();
+            const normalized = [];
+
+            candidateProposals.forEach((proposal, index) => {
+                const rawTitle = typeof proposal.title === 'string' ? proposal.title.trim() : '';
+
+                if (!rawTitle) {
+                    return;
+                }
+
+                const baseId = typeof proposal.id === 'string' && proposal.id.trim()
+                    ? makeSlug(proposal.id)
+                    : makeSlug(rawTitle);
+
+                let uniqueId = baseId;
+                let suffix = 2;
+                while (seenIds.has(uniqueId)) {
+                    uniqueId = `${baseId}-${suffix}`;
+                    suffix += 1;
+                }
+
+                seenIds.add(uniqueId);
+                normalized.push({ id: uniqueId, title: rawTitle });
+            });
+
+            if (!normalized.length) {
+                return deepClone(defaultProposals);
+            }
+
+            return normalized;
+        };
 
         const defaultState = {
-            users: {}
+            users: {},
+            proposals: deepClone(defaultProposals)
+        };
+
+        const isPlainObject = (value) => Boolean(value) && typeof value === 'object' && !Array.isArray(value);
+
+        const pruneUserVotes = (state) => {
+            const proposalIds = new Set(state.proposals.map((proposal) => proposal.id));
+
+            Object.keys(state.users).forEach((userKey) => {
+                if (!isPlainObject(state.users[userKey])) {
+                    state.users[userKey] = {};
+                    return;
+                }
+
+                Object.keys(state.users[userKey]).forEach((proposalId) => {
+                    if (!proposalIds.has(proposalId)) {
+                        delete state.users[userKey][proposalId];
+                        return;
+                    }
+
+                    const value = state.users[userKey][proposalId];
+                    state.users[userKey][proposalId] = Number.isInteger(value) && value >= 0 ? value : 0;
+                });
+
+                state.proposals.forEach((proposal) => {
+                    if (!Number.isInteger(state.users[userKey][proposal.id])) {
+                        state.users[userKey][proposal.id] = 0;
+                    }
+                });
+            });
+        };
+
+        const normalizeState = (stateInput) => {
+            const state = {
+                users: isPlainObject(stateInput && stateInput.users) ? stateInput.users : {},
+                proposals: normalizeProposals(stateInput && stateInput.proposals)
+            };
+
+            pruneUserVotes(state);
+            return state;
         };
 
         const getState = () => {
             try {
                 const raw = localStorage.getItem(STORAGE_KEY);
                 if (!raw) {
-                    return structuredClone(defaultState);
+                    return deepClone(defaultState);
                 }
 
                 const parsed = JSON.parse(raw);
-                return parsed && parsed.users ? parsed : structuredClone(defaultState);
+                return normalizeState(parsed);
             } catch {
-                return structuredClone(defaultState);
+                return deepClone(defaultState);
             }
         };
 
         const saveState = (state) => {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(normalizeState(state)));
         };
 
         const ensureUserVotes = (state, userKey) => {
@@ -207,7 +387,7 @@ Use five dots to vote on the ideas below. Enter a name to identify your votes on
                 state.users[userKey] = {};
             }
 
-            proposals.forEach((proposal) => {
+            state.proposals.forEach((proposal) => {
                 if (!Number.isInteger(state.users[userKey][proposal.id])) {
                     state.users[userKey][proposal.id] = 0;
                 }
@@ -216,7 +396,7 @@ Use five dots to vote on the ideas below. Enter a name to identify your votes on
 
         const totalVotesByUser = (state, userKey) => {
             ensureUserVotes(state, userKey);
-            return proposals.reduce((sum, proposal) => sum + state.users[userKey][proposal.id], 0);
+            return state.proposals.reduce((sum, proposal) => sum + state.users[userKey][proposal.id], 0);
         };
 
         const totalVotesByProposal = (state, proposalId) => {
@@ -311,9 +491,80 @@ Use five dots to vote on the ideas below. Enter a name to identify your votes on
             renderStatus(state);
 
             proposalList.innerHTML = '';
-            proposals.forEach((proposal) => {
+            state.proposals.forEach((proposal) => {
                 proposalList.appendChild(proposalCard(state, proposal));
             });
+        };
+
+        const adminProposalRow = (proposal) => {
+            const item = document.createElement('li');
+            item.className = 'admin-proposal-row';
+
+            const titleInput = document.createElement('input');
+            titleInput.type = 'text';
+            titleInput.maxLength = 120;
+            titleInput.placeholder = 'Proposal title';
+            titleInput.value = proposal.title;
+            titleInput.dataset.proposalId = proposal.id;
+
+            const removeButton = document.createElement('button');
+            removeButton.type = 'button';
+            removeButton.textContent = 'Remove';
+            removeButton.addEventListener('click', () => {
+                item.remove();
+                adminMessage.textContent = '';
+            });
+
+            item.appendChild(titleInput);
+            item.appendChild(removeButton);
+
+            return item;
+        };
+
+        const renderAdminProposals = (state) => {
+            adminProposalList.innerHTML = '';
+            state.proposals.forEach((proposal) => {
+                adminProposalList.appendChild(adminProposalRow(proposal));
+            });
+        };
+
+        const saveProposalsFromAdmin = () => {
+            const rows = Array.from(adminProposalList.querySelectorAll('.admin-proposal-row input'));
+            const draftProposals = rows
+                .map((input) => ({
+                    id: input.dataset.proposalId || '',
+                    title: input.value.trim()
+                }))
+                .filter((proposal) => proposal.title.length > 0);
+
+            if (!draftProposals.length) {
+                adminMessage.textContent = 'Add at least one proposal before saving.';
+                return;
+            }
+
+            const state = getState();
+            state.proposals = normalizeProposals(draftProposals);
+            pruneUserVotes(state);
+            saveState(state);
+            renderAdminProposals(state);
+            adminMessage.textContent = 'Proposal list saved.';
+
+            if (currentUserKey) {
+                render(state);
+            }
+        };
+
+        const resetDefaultProposals = () => {
+            const state = getState();
+            state.proposals = deepClone(defaultProposals);
+            pruneUserVotes(state);
+            saveState(state);
+            renderAdminProposals(state);
+            adminMessage.textContent = 'Proposal list reset to defaults.';
+
+            if (currentUserKey) {
+                render(state);
+            }
         };
 
         voterForm.addEventListener('submit', (event) => {
@@ -337,5 +588,23 @@ Use five dots to vote on the ideas below. Enter a name to identify your votes on
             voterMessage.textContent = '';
             render(state);
         });
+
+        adminForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            saveProposalsFromAdmin();
+        });
+
+        addProposalButton.addEventListener('click', () => {
+            adminProposalList.appendChild(adminProposalRow({ id: '', title: '' }));
+            adminMessage.textContent = '';
+        });
+
+        resetProposalsButton.addEventListener('click', () => {
+            resetDefaultProposals();
+        });
+
+        const initialState = getState();
+        saveState(initialState);
+        renderAdminProposals(initialState);
     })();
 </script>
