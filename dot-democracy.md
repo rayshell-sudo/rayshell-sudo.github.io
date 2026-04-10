@@ -10,13 +10,13 @@ Use five dots to vote on the ideas below. Enter a name to identify your votes on
 Admins can edit proposal titles at the bottom of this page without changing code.
 
 <section id="dot-democracy" aria-label="Dot democracy voting board">
-    <form id="voter-form" novalidate>
-        <label for="voter-name">Your name</label>
-        <div class="voter-row">
-            <input id="voter-name" name="voterName" type="text" maxlength="40" placeholder="e.g. Taylor" required>
+    <form id="user-form" novalidate>
+        <label for="user-name">Your name</label>
+        <div class="user-row">
+            <input id="user-name" name="userName" type="text" maxlength="40" placeholder="e.g. Taylor" required>
             <button type="submit">Start Voting</button>
         </div>
-        <p id="voter-message" role="status" aria-live="polite"></p>
+        <p id="user-message" role="status" aria-live="polite"></p>
     </form>
 
     <div id="voting-app" hidden>
@@ -54,31 +54,31 @@ Admins can edit proposal titles at the bottom of this page without changing code
         background: #f8fbfe;
     }
 
-    #voter-form {
+    #user-form {
         display: grid;
         gap: 0.5rem;
     }
 
-    #voter-form label {
+    #user-form label {
         font-size: 0.95rem;
         font-weight: 600;
     }
 
-    .voter-row {
+    .user-row {
         display: grid;
         grid-template-columns: minmax(180px, 320px) auto;
         gap: 0.5rem;
         align-items: center;
     }
 
-    #voter-name {
+    #user-name {
         border: 1px solid #c3cfda;
         border-radius: 6px;
         padding: 0.5rem 0.65rem;
         font-size: 1rem;
     }
 
-    #voter-form button,
+    #user-form button,
     .proposal-controls button,
     .admin-actions button,
     .admin-proposal-row button {
@@ -89,7 +89,7 @@ Admins can edit proposal titles at the bottom of this page without changing code
         font-weight: 600;
     }
 
-    #voter-message {
+    #user-message {
         min-height: 1.2rem;
         margin: 0;
         color: #b21f2d;
@@ -219,11 +219,11 @@ Admins can edit proposal titles at the bottom of this page without changing code
     }
 
     @media (max-width: 680px) {
-        .voter-row {
+        .user-row {
             grid-template-columns: 1fr;
         }
 
-        #voter-form button {
+        #user-form button {
             width: 100%;
         }
 
@@ -258,9 +258,9 @@ Admins can edit proposal titles at the bottom of this page without changing code
             { id: 'community-events', title: 'Run monthly community events' }
         ];
 
-        const voterForm = document.getElementById('voter-form');
-        const voterNameInput = document.getElementById('voter-name');
-        const voterMessage = document.getElementById('voter-message');
+        const userForm = document.getElementById('user-form');
+        const userNameInput = document.getElementById('user-name');
+        const userMessage = document.getElementById('user-message');
         const votingApp = document.getElementById('voting-app');
         const activeUser = document.getElementById('active-user');
         const remainingVotes = document.getElementById('remaining-votes');
@@ -424,7 +424,7 @@ Admins can edit proposal titles at the bottom of this page without changing code
             const usedVotes = totalVotesByUser(state, currentUserKey);
 
             if (delta > 0 && usedVotes >= MAX_VOTES_PER_USER) {
-                voterMessage.textContent = `You have already used all ${MAX_VOTES_PER_USER} votes.`;
+                userMessage.textContent = `You have already used all ${MAX_VOTES_PER_USER} votes.`;
                 return;
             }
 
@@ -434,7 +434,7 @@ Admins can edit proposal titles at the bottom of this page without changing code
 
             state.users[currentUserKey][proposalId] = currentValue + delta;
             saveState(state);
-            voterMessage.textContent = '';
+            userMessage.textContent = '';
             render(state);
         };
 
@@ -567,14 +567,14 @@ Admins can edit proposal titles at the bottom of this page without changing code
             }
         };
 
-        voterForm.addEventListener('submit', (event) => {
+        userForm.addEventListener('submit', (event) => {
             event.preventDefault();
 
-            const entered = displayName(voterNameInput.value);
+            const entered = displayName(userNameInput.value);
             const userKey = sanitizeName(entered);
 
             if (!userKey) {
-                voterMessage.textContent = 'Enter your name to begin voting.';
+                userMessage.textContent = 'Enter your name to begin voting.';
                 return;
             }
 
@@ -585,7 +585,7 @@ Admins can edit proposal titles at the bottom of this page without changing code
             currentUserKey = userKey;
             currentUserLabel = entered;
             votingApp.hidden = false;
-            voterMessage.textContent = '';
+            userMessage.textContent = '';
             render(state);
         });
 
