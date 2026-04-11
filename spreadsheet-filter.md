@@ -1,11 +1,11 @@
 ---
 layout: default
-title: Spreadsheet Filter
+title: Grocery Price Book
 ---
 
-# Spreadsheet Filter
+# Grocery Price Book
 
-Use this page to browse and filter data exported from your spreadsheet.
+Select an item to compare prices over time. 
 
 <section id="sheet-filter" aria-label="Spreadsheet item filter">
     <p class="helper-text">
@@ -13,9 +13,6 @@ Use this page to browse and filter data exported from your spreadsheet.
     </p>
 
     <div class="controls" role="group" aria-label="Filter controls">
-        <label for="search-input">Search</label>
-        <input id="search-input" type="search" placeholder="Search all columns">
-
         <label for="date-from-filter">Date From</label>
         <input id="date-from-filter" type="date">
 
@@ -346,7 +343,6 @@ Use this page to browse and filter data exported from your spreadsheet.
         // DOM Element References
         // ============================================================================
         // Filter/search controls
-        const searchInput = document.getElementById('search-input');
         const dateFromFilter = document.getElementById('date-from-filter');
         const dateToFilter = document.getElementById('date-to-filter');
         const shopFilter = document.getElementById('shop-filter');
@@ -422,7 +418,6 @@ Use this page to browse and filter data exported from your spreadsheet.
         function readUrlState() {
             const params = new URLSearchParams(window.location.search);
             return {
-                search: params.get('q') || '',
                 dateFrom: params.get('from') || '',
                 dateTo: params.get('to') || '',
                 shop: params.get('shop') || '',
@@ -446,7 +441,6 @@ Use this page to browse and filter data exported from your spreadsheet.
         function hydrateStateFromUrl() {
             const urlState = readUrlState();
 
-            searchInput.value = urlState.search;
             dateFromFilter.value = urlState.dateFrom;
             dateToFilter.value = urlState.dateTo;
             setSelectValueIfExists(shopFilter, urlState.shop);
@@ -464,9 +458,6 @@ Use this page to browse and filter data exported from your spreadsheet.
         function updateUrlFromState() {
             const params = new URLSearchParams();
 
-            if (searchInput.value.trim()) {
-                params.set('q', searchInput.value.trim());
-            }
             if (dateFromFilter.value) {
                 params.set('from', dateFromFilter.value);
             }
@@ -1124,7 +1115,6 @@ Use this page to browse and filter data exported from your spreadsheet.
         // Main function: applies all active filters and updates UI
         
         function applyFilters() {
-            const search = searchInput.value.trim().toLowerCase();
             const dateFrom = parseInputDate(dateFromFilter.value);
             const dateTo = parseInputDate(dateToFilter.value);
             const shop = shopFilter.value;
@@ -1156,12 +1146,7 @@ Use this page to browse and filter data exported from your spreadsheet.
                     return false;
                 }
 
-                if (!search) {
-                    return true;
-                }
-
-                const joined = state.headers.map((header) => row[header]).join(' ').toLowerCase();
-                return joined.includes(search);
+                return true;
             });
 
             const sortedRows = getSortedRows(state.filteredRows);
@@ -1187,7 +1172,6 @@ Use this page to browse and filter data exported from your spreadsheet.
 
         // Reset all filters and sort to defaults
         function resetFilters() {
-            searchInput.value = '';
             dateFromFilter.value = '';
             dateToFilter.value = '';
             shopFilter.value = '';
@@ -1272,7 +1256,7 @@ Use this page to browse and filter data exported from your spreadsheet.
         // Event Handlers for Filter Controls
         // ============================================================================
         
-        [searchInput, shopFilter, brandFilter, itemFilter].forEach((element) => {
+        [shopFilter, brandFilter, itemFilter].forEach((element) => {
             element.addEventListener('input', applyFilters);
             element.addEventListener('change', applyFilters);
         });
