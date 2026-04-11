@@ -89,6 +89,7 @@ Use this page to browse and filter data exported from your spreadsheet.
 
     <!-- Detailed results table - shown only when item is selected -->
     <div class="table-wrap" id="results-section" hidden>
+        <h3>Price History</h3>
         <table id="results-table">
             <thead id="results-head"></thead>
             <tbody id="results-body"></tbody>
@@ -187,6 +188,10 @@ Use this page to browse and filter data exported from your spreadsheet.
     #recent-by-shop-table th {
         background: #edf4fa;
         font-weight: 700;
+    }
+
+    #recent-section {
+        margin-bottom: 1.25rem;
     }
 
     .summary-grid {
