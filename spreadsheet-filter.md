@@ -37,6 +37,9 @@ Use this page to browse and filter data exported from your spreadsheet.
             <option value="">All items</option>
         </select>
 
+        <label for="item-search">Search Items</label>
+        <input id="item-search" type="search" placeholder="Filter item list">
+
         <label for="reset-filters-btn">Reset</label>
         <button id="reset-filters-btn" type="button">Reset Filters</button>
     </div>
@@ -44,7 +47,8 @@ Use this page to browse and filter data exported from your spreadsheet.
     <p id="result-count" class="helper-text" aria-live="polite"></p>
     <p id="load-error" class="error-text" aria-live="polite"></p>
 
-    <section class="summary-grid" aria-label="Price summary">
+    <!-- Summary metrics - shown only when item is selected -->
+    <section class="summary-grid" id="summary-section" aria-label="Price summary" hidden>
         <article class="summary-card">
             <h3>Lowest Price per Unit</h3>
             <p id="lowest-price-per-unit">No data</p>
@@ -63,7 +67,8 @@ Use this page to browse and filter data exported from your spreadsheet.
         </article>
     </section>
 
-    <section aria-label="Most recent price by shop">
+    <!-- Most recent by shop table - shown only when item is selected -->
+    <section aria-label="Most recent price by shop" id="recent-section" hidden>
         <h3>Most Recent Price by Shop</h3>
         <p id="recent-by-shop-hint" class="helper-text"></p>
         <div class="table-wrap">
@@ -82,13 +87,15 @@ Use this page to browse and filter data exported from your spreadsheet.
         </div>
     </section>
 
-    <div class="table-wrap">
+    <!-- Detailed results table - shown only when item is selected -->
+    <div class="table-wrap" id="results-section" hidden>
         <table id="results-table">
             <thead id="results-head"></thead>
             <tbody id="results-body"></tbody>
         </table>
     </div>
 
+    <!-- Item trend chart - shown only when item is selected -->
     <section id="item-trend-section" aria-label="Item price trend" hidden>
         <h3>Price per 100g by Date (Split by Shop)</h3>
         <p id="item-trend-hint" class="helper-text"></p>
@@ -120,7 +127,7 @@ Use this page to browse and filter data exported from your spreadsheet.
 
     .controls {
         display: grid;
-        grid-template-columns: repeat(6, minmax(140px, 1fr));
+        grid-template-columns: repeat(4, minmax(140px, 1fr));
         gap: 0.6rem;
         margin: 1rem 0;
     }
@@ -267,7 +274,7 @@ Use this page to browse and filter data exported from your spreadsheet.
         display: inline-block;
     }
 
-    @media (max-width: 840px) {
+    @media (max-width: 1000px) {
         .controls {
             grid-template-columns: repeat(3, minmax(150px, 1fr));
         }
@@ -286,7 +293,16 @@ Use this page to browse and filter data exported from your spreadsheet.
 
 <script>
     (() => {
+        // ============================================================================
+        // SPREADSHEET FILTER - Data loader and dynamic UI with search/sort/filter
+        // ============================================================================
+        // This script initializes a CSV data table with client-side filtering,
+        // sorting, and analytics. All data is loaded into memory for fast searching.
+        // ============================================================================
+
+        // Configuration
         const CSV_PATH = '/data/items.csv';
+        // Columns that contain numeric values (used for sorting and min/max calculations)
         const NUMERIC_COLUMNS = new Set([
             'Units',
             'Grams',
@@ -294,6 +310,7 @@ Use this page to browse and filter data exported from your spreadsheet.
             'Price per Unit',
             'Price per 100g'
         ]);
+        // Month name to numeric index mapping for date parsing
         const MONTHS = {
             jan: 0,
             feb: 1,
@@ -309,29 +326,49 @@ Use this page to browse and filter data exported from your spreadsheet.
             dec: 11
         };
 
+        // ============================================================================
+        // DOM Element References
+        // ============================================================================
+        // Filter/search controls
         const searchInput = document.getElementById('search-input');
         const dateFromFilter = document.getElementById('date-from-filter');
         const dateToFilter = document.getElementById('date-to-filter');
         const shopFilter = document.getElementById('shop-filter');
         const brandFilter = document.getElementById('brand-filter');
         const itemFilter = document.getElementById('item-filter');
+        const itemSearch = document.getElementById('item-search');
         const resetFiltersButton = document.getElementById('reset-filters-btn');
+        
+        // Result display and feedback
         const resultCount = document.getElementById('result-count');
         const loadError = document.getElementById('load-error');
+        
+        // Results table
         const resultsHead = document.getElementById('results-head');
         const resultsBody = document.getElementById('results-body');
+        const resultsSection = document.getElementById('results-section');
+        
+        // Summary cards (min/max prices)
         const lowestPricePerUnit = document.getElementById('lowest-price-per-unit');
         const highestPricePerUnit = document.getElementById('highest-price-per-unit');
         const lowestPricePer100g = document.getElementById('lowest-price-per-100g');
         const highestPricePer100g = document.getElementById('highest-price-per-100g');
+        const summarySection = document.getElementById('summary-section');
+        
+        // Most recent by shop table
         const recentByShopHint = document.getElementById('recent-by-shop-hint');
         const recentByShopBody = document.getElementById('recent-by-shop-body');
+        const recentSection = document.getElementById('recent-section');
+        
+        // Trend chart (shown only when item selected)
         const itemTrendSection = document.getElementById('item-trend-section');
         const itemTrendHint = document.getElementById('item-trend-hint');
         const itemTrendChart = document.getElementById('item-trend-chart');
         const itemTrendLegend = document.getElementById('item-trend-legend');
 
+        // SVG and charting configuration
         const SVG_NS = 'http://www.w3.org/2000/svg';
+        // Color palette for chart lines (one per shop, cycles if more than 10 shops)
         const CHART_COLORS = [
             '#1f77b4',
             '#d62728',
@@ -345,17 +382,27 @@ Use this page to browse and filter data exported from your spreadsheet.
             '#7f7f7f'
         ];
 
+        // ============================================================================
+        // Application State
+        // ============================================================================
+        // Maintains all data and current filter/sort state
         const state = {
-            headers: [],
-            rows: [],
-            filteredRows: [],
-            sortColumn: 'Date',
-            sortDirection: 'desc'
+            headers: [],              // CSV column headers
+            rows: [],                 // All CSV data rows (unchanged)
+            filteredRows: [],          // Rows after applying current filters
+            sortColumn: 'Date',        // Current sort column
+            sortDirection: 'desc',     // Current sort direction (asc or desc)
+            itemFilterOptions: []      // All unique items (for item search filtering)
         };
 
         const DEFAULT_SORT_COLUMN = 'Date';
         const DEFAULT_SORT_DIRECTION = 'desc';
 
+        // ============================================================================
+        // URL Parameter Persistence
+        // ============================================================================
+        // Allows filtering state to be persisted and shared via URL parameters
+        
         function readUrlState() {
             const params = new URLSearchParams(window.location.search);
             return {
@@ -432,6 +479,11 @@ Use this page to browse and filter data exported from your spreadsheet.
             window.history.replaceState(null, '', newUrl);
         }
 
+        // ============================================================================
+        // CSV Parsing and Data Transformation
+        // ============================================================================
+        // Handles CSV parsing with proper quote-escaping and line-ending support
+        
         function parseCsv(text) {
             const rows = [];
             let current = '';
@@ -477,10 +529,12 @@ Use this page to browse and filter data exported from your spreadsheet.
             return rows;
         }
 
+        // Normalize string values by trimming whitespace
         function normalizeValue(value) {
             return String(value || '').trim();
         }
 
+        // Parse numeric values, stripping currency symbols and commas
         function parseNumericValue(value) {
             const normalized = normalizeValue(value).replace(/[$,]/g, '');
             if (!normalized) {
@@ -490,6 +544,8 @@ Use this page to browse and filter data exported from your spreadsheet.
             return Number.isFinite(parsed) ? parsed : Number.NaN;
         }
 
+        // Parse date strings in format "DD-MMM-YY" to UTC millisecond timestamp
+        // Falls back to Date.parse() for other formats
         function parseDateToTimestamp(value) {
             const normalized = normalizeValue(value);
             if (!normalized) {
@@ -513,6 +569,7 @@ Use this page to browse and filter data exported from your spreadsheet.
             return Number.isFinite(fallback) ? fallback : Number.NaN;
         }
 
+        // Parse HTML date input format (YYYY-MM-DD)
         function parseInputDate(value) {
             if (!value) {
                 return Number.NaN;
@@ -525,6 +582,7 @@ Use this page to browse and filter data exported from your spreadsheet.
             return Date.UTC(year, month - 1, day);
         }
 
+        // Format numeric value as currency
         function formatCurrency(value) {
             if (!Number.isFinite(value)) {
                 return 'N/A';
@@ -532,6 +590,7 @@ Use this page to browse and filter data exported from your spreadsheet.
             return `$${value.toFixed(2)}`;
         }
 
+        // Format timestamp as ISO date string (YYYY-MM-DD)
         function formatIsoDate(timestamp) {
             if (!Number.isFinite(timestamp)) {
                 return '';
@@ -539,6 +598,7 @@ Use this page to browse and filter data exported from your spreadsheet.
             return new Date(timestamp).toISOString().slice(0, 10);
         }
 
+        // Format a summary line showing price, date, shop, and item
         function formatSummaryLine(row, metric) {
             if (!row) {
                 return 'No valid values in current filter.';
@@ -547,6 +607,7 @@ Use this page to browse and filter data exported from your spreadsheet.
             return `${formatCurrency(value)} on ${row.Date || 'Unknown date'} (${row.Shop || 'Unknown shop'} | ${row.Item || 'Unknown item'})`;
         }
 
+        // Convert CSV row array to object keyed by header
         function rowToObject(headers, rowValues) {
             const obj = {};
             headers.forEach((header, index) => {
@@ -555,6 +616,7 @@ Use this page to browse and filter data exported from your spreadsheet.
             return obj;
         }
 
+        // Populate a select element with sorted options
         function setSelectOptions(selectElement, values, allLabel) {
             const sorted = [...values].sort((a, b) => a.localeCompare(b));
             selectElement.innerHTML = '';
@@ -572,6 +634,11 @@ Use this page to browse and filter data exported from your spreadsheet.
             });
         }
 
+        // ============================================================================
+        // Filter Dropdown Initialization
+        // ============================================================================
+        // Extract and populate Shop, Brand, and Item dropdowns
+        
         function buildFilterValues(rows) {
             const shops = new Set();
             const brands = new Set();
@@ -592,8 +659,14 @@ Use this page to browse and filter data exported from your spreadsheet.
             setSelectOptions(shopFilter, shops, 'All shops');
             setSelectOptions(brandFilter, brands, 'All brands');
             setSelectOptions(itemFilter, items, 'All items');
+            // Store items for item search filtering
+            state.itemFilterOptions = [...items].sort((a, b) => a.localeCompare(b));
         }
 
+        // ============================================================================
+        // Sorting and Table Rendering
+        // ============================================================================
+        
         function getSortIndicator(header) {
             if (state.sortColumn !== header) {
                 return '';
@@ -601,6 +674,7 @@ Use this page to browse and filter data exported from your spreadsheet.
             return state.sortDirection === 'asc' ? '▲' : '▼';
         }
 
+        // Compare two rows by a column, handling dates, numerics, and text
         function compareByColumn(left, right, column) {
             if (column === 'Date') {
                 const leftValue = parseDateToTimestamp(left.Date);
@@ -646,6 +720,7 @@ Use this page to browse and filter data exported from your spreadsheet.
             return [...rows].sort((left, right) => compareByColumn(left, right, state.sortColumn) * direction);
         }
 
+        // Render the detailed results table with sortable headers
         function renderTable(headers, rows) {
             resultsHead.innerHTML = '';
             resultsBody.innerHTML = '';
@@ -691,6 +766,11 @@ Use this page to browse and filter data exported from your spreadsheet.
             });
         }
 
+        // ============================================================================
+        // Analytics and Summary Rendering
+        // ============================================================================
+        // Find min/max prices and render summary cards and tables
+        
         function findExtremeRow(rows, metric, mode) {
             const validRows = rows.filter((row) => Number.isFinite(parseNumericValue(row[metric])));
             if (validRows.length === 0) {
@@ -711,6 +791,7 @@ Use this page to browse and filter data exported from your spreadsheet.
             }, null);
         }
 
+        // Render summary cards showing min/max prices with context
         function renderSummary(rows) {
             const lowestUnit = findExtremeRow(rows, 'Price per Unit', 'min');
             const highestUnit = findExtremeRow(rows, 'Price per Unit', 'max');
@@ -723,6 +804,7 @@ Use this page to browse and filter data exported from your spreadsheet.
             highestPricePer100g.textContent = formatSummaryLine(highest100g, 'Price per 100g');
         }
 
+        // Render table of most recent price entries grouped by shop
         function renderMostRecentByShop(rows) {
             recentByShopBody.innerHTML = '';
 
@@ -788,11 +870,17 @@ Use this page to browse and filter data exported from your spreadsheet.
             });
         }
 
+        // ============================================================================
+        // Trend Chart Rendering
+        // ============================================================================
+        // SVG-based line chart showing price trends by shop over time
+        
         function clearChart() {
             itemTrendChart.innerHTML = '';
             itemTrendLegend.innerHTML = '';
         }
 
+        // Create an SVG element with namespace and attributes
         function createSvgElement(tag, attributes) {
             const element = document.createElementNS(SVG_NS, tag);
             Object.entries(attributes).forEach(([key, value]) => {
@@ -801,6 +889,7 @@ Use this page to browse and filter data exported from your spreadsheet.
             return element;
         }
 
+        // Render chart legend showing shop names with color swatches
         function renderLegend(groups) {
             itemTrendLegend.innerHTML = '';
             groups.forEach((group, index) => {
@@ -821,6 +910,8 @@ Use this page to browse and filter data exported from your spreadsheet.
             });
         }
 
+        // Render SVG trend chart: Price per 100g over time, split by shop
+        // Only renders if an item is selected
         function renderItemTrendChart(rows, selectedItem) {
             if (!selectedItem) {
                 itemTrendSection.hidden = true;
@@ -1010,6 +1101,11 @@ Use this page to browse and filter data exported from your spreadsheet.
             itemTrendHint.textContent = `${allPoints.length} point(s) across ${groups.length} shop(s) for ${selectedItem}.`;
         }
 
+        // ============================================================================
+        // Filtering and Rendering Pipeline
+        // ============================================================================
+        // Main function: applies all active filters and updates UI
+        
         function applyFilters() {
             const search = searchInput.value.trim().toLowerCase();
             const dateFrom = parseInputDate(dateFromFilter.value);
@@ -1054,12 +1150,25 @@ Use this page to browse and filter data exported from your spreadsheet.
             const sortedRows = getSortedRows(state.filteredRows);
             resultCount.textContent = `${state.filteredRows.length} item(s) shown`;
             renderTable(state.headers, sortedRows);
+            
+            // Show/hide analytics sections based on whether an item is selected
+            if (item) {
+                summarySection.hidden = false;
+                recentSection.hidden = false;
+                resultsSection.hidden = false;
+            } else {
+                summarySection.hidden = true;
+                recentSection.hidden = true;
+                resultsSection.hidden = true;
+            }
+            
             renderSummary(state.filteredRows);
             renderMostRecentByShop(state.filteredRows);
             renderItemTrendChart(state.filteredRows, item);
             updateUrlFromState();
         }
 
+        // Reset all filters and sort to defaults
         function resetFilters() {
             searchInput.value = '';
             dateFromFilter.value = '';
@@ -1074,6 +1183,10 @@ Use this page to browse and filter data exported from your spreadsheet.
             applyFilters();
         }
 
+        // ============================================================================
+        // CSV Loading and Initialization
+        // ============================================================================
+        
         async function loadCsv() {
             try {
                 const response = await fetch(CSV_PATH, { cache: 'no-store' });
@@ -1105,6 +1218,32 @@ Use this page to browse and filter data exported from your spreadsheet.
             }
         }
 
+        // ============================================================================
+        // Item Search Filter Handler
+        // ============================================================================
+        // Dynamically filter the item dropdown based on search input
+        
+        function filterItemDropdown() {
+            const searchTerm = itemSearch.value.trim().toLowerCase();
+            const items = new Set();
+            
+            // Filter items based on search term
+            state.itemFilterOptions.forEach((item) => {
+                if (item.toLowerCase().includes(searchTerm)) {
+                    items.add(item);
+                }
+            });
+            
+            // Update item dropdown with filtered options
+            setSelectOptions(itemFilter, items, 'All items');
+        }
+        
+        itemSearch.addEventListener('input', filterItemDropdown);
+        
+        // ============================================================================
+        // Event Handlers for Filter Controls
+        // ============================================================================
+        
         [searchInput, shopFilter, brandFilter, itemFilter].forEach((element) => {
             element.addEventListener('input', applyFilters);
             element.addEventListener('change', applyFilters);
@@ -1115,8 +1254,16 @@ Use this page to browse and filter data exported from your spreadsheet.
             element.addEventListener('input', applyFilters);
         });
 
-        resetFiltersButton.addEventListener('click', resetFilters);
+        resetFiltersButton.addEventListener('click', () => {
+            itemSearch.value = ''; // Also reset the item search
+            filterItemDropdown();
+            resetFilters();
+        });
 
+        // ============================================================================
+        // Application Initialization
+        // ============================================================================
+        
         loadCsv();
     })();
 </script>
