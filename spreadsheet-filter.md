@@ -36,6 +36,9 @@ Use this page to browse and filter data exported from your spreadsheet.
         <select id="item-filter">
             <option value="">All items</option>
         </select>
+
+        <label for="reset-filters-btn">Reset</label>
+        <button id="reset-filters-btn" type="button">Reset Filters</button>
     </div>
 
     <p id="result-count" class="helper-text" aria-live="polite"></p>
@@ -135,6 +138,22 @@ Use this page to browse and filter data exported from your spreadsheet.
         padding: 0.5rem 0.6rem;
         font-size: 0.95rem;
         min-height: 38px;
+    }
+
+    .controls button {
+        border: 1px solid #94aac0;
+        border-radius: 6px;
+        padding: 0.5rem 0.6rem;
+        font-size: 0.95rem;
+        min-height: 38px;
+        font-weight: 600;
+        background: #ffffff;
+        color: #1f3b57;
+        cursor: pointer;
+    }
+
+    .controls button:hover {
+        background: #f0f6fb;
     }
 
     .table-wrap {
@@ -296,6 +315,7 @@ Use this page to browse and filter data exported from your spreadsheet.
         const shopFilter = document.getElementById('shop-filter');
         const brandFilter = document.getElementById('brand-filter');
         const itemFilter = document.getElementById('item-filter');
+        const resetFiltersButton = document.getElementById('reset-filters-btn');
         const resultCount = document.getElementById('result-count');
         const loadError = document.getElementById('load-error');
         const resultsHead = document.getElementById('results-head');
@@ -332,6 +352,85 @@ Use this page to browse and filter data exported from your spreadsheet.
             sortColumn: 'Date',
             sortDirection: 'desc'
         };
+
+        const DEFAULT_SORT_COLUMN = 'Date';
+        const DEFAULT_SORT_DIRECTION = 'desc';
+
+        function readUrlState() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                search: params.get('q') || '',
+                dateFrom: params.get('from') || '',
+                dateTo: params.get('to') || '',
+                shop: params.get('shop') || '',
+                brand: params.get('brand') || '',
+                item: params.get('item') || '',
+                sort: params.get('sort') || '',
+                dir: params.get('dir') || ''
+            };
+        }
+
+        function setSelectValueIfExists(selectElement, value) {
+            if (!value) {
+                selectElement.value = '';
+                return;
+            }
+
+            const optionExists = [...selectElement.options].some((option) => option.value === value);
+            selectElement.value = optionExists ? value : '';
+        }
+
+        function hydrateStateFromUrl() {
+            const urlState = readUrlState();
+
+            searchInput.value = urlState.search;
+            dateFromFilter.value = urlState.dateFrom;
+            dateToFilter.value = urlState.dateTo;
+            setSelectValueIfExists(shopFilter, urlState.shop);
+            setSelectValueIfExists(brandFilter, urlState.brand);
+            setSelectValueIfExists(itemFilter, urlState.item);
+
+            if (urlState.sort && state.headers.includes(urlState.sort)) {
+                state.sortColumn = urlState.sort;
+            }
+            if (urlState.dir === 'asc' || urlState.dir === 'desc') {
+                state.sortDirection = urlState.dir;
+            }
+        }
+
+        function updateUrlFromState() {
+            const params = new URLSearchParams();
+
+            if (searchInput.value.trim()) {
+                params.set('q', searchInput.value.trim());
+            }
+            if (dateFromFilter.value) {
+                params.set('from', dateFromFilter.value);
+            }
+            if (dateToFilter.value) {
+                params.set('to', dateToFilter.value);
+            }
+            if (shopFilter.value) {
+                params.set('shop', shopFilter.value);
+            }
+            if (brandFilter.value) {
+                params.set('brand', brandFilter.value);
+            }
+            if (itemFilter.value) {
+                params.set('item', itemFilter.value);
+            }
+
+            if (state.sortColumn && state.sortColumn !== DEFAULT_SORT_COLUMN) {
+                params.set('sort', state.sortColumn);
+            }
+            if (state.sortDirection && state.sortDirection !== DEFAULT_SORT_DIRECTION) {
+                params.set('dir', state.sortDirection);
+            }
+
+            const queryString = params.toString();
+            const newUrl = queryString ? `${window.location.pathname}?${queryString}` : window.location.pathname;
+            window.history.replaceState(null, '', newUrl);
+        }
 
         function parseCsv(text) {
             const rows = [];
@@ -958,6 +1057,21 @@ Use this page to browse and filter data exported from your spreadsheet.
             renderSummary(state.filteredRows);
             renderMostRecentByShop(state.filteredRows);
             renderItemTrendChart(state.filteredRows, item);
+            updateUrlFromState();
+        }
+
+        function resetFilters() {
+            searchInput.value = '';
+            dateFromFilter.value = '';
+            dateToFilter.value = '';
+            shopFilter.value = '';
+            brandFilter.value = '';
+            itemFilter.value = '';
+
+            state.sortColumn = DEFAULT_SORT_COLUMN;
+            state.sortDirection = DEFAULT_SORT_DIRECTION;
+
+            applyFilters();
         }
 
         async function loadCsv() {
@@ -980,6 +1094,7 @@ Use this page to browse and filter data exported from your spreadsheet.
                     .map((row) => rowToObject(state.headers, row));
 
                 buildFilterValues(state.rows);
+                hydrateStateFromUrl();
                 applyFilters();
                 loadError.textContent = '';
             } catch (error) {
@@ -999,6 +1114,8 @@ Use this page to browse and filter data exported from your spreadsheet.
             element.addEventListener('change', applyFilters);
             element.addEventListener('input', applyFilters);
         });
+
+        resetFiltersButton.addEventListener('click', resetFilters);
 
         loadCsv();
     })();
