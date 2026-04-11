@@ -40,8 +40,21 @@ The site will be available at `http://localhost:4000`
 
 - **_config.yml** - Jekyll configuration and site metadata
 - **index.md** - Home page content
+- **spreadsheet-filter.md** - Spreadsheet-backed filter page
+- **data/items.csv** - CSV dataset used by the filter page
 - **docstringgeneration.js** - JavaScript utility for docstring generation
 - **docstringgeneration.py** - Python utility for docstring generation
+
+### Spreadsheet Data Workflow (Option 1)
+
+Use this workflow to keep data on the site while editing in a spreadsheet:
+
+1. Update your spreadsheet.
+2. Export as CSV.
+3. Replace `data/items.csv` with the new export (keep header names stable where possible).
+4. Commit and push.
+
+The page at `/spreadsheet-filter.html` will load the latest committed CSV and let users filter by shop, brand, item, and free-text search.
 
 ### Building for Production
 

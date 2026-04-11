@@ -10,6 +10,7 @@ This is my GitHub Pages site powered by Jekyll.
 ## Pages
 
 - [Dot Democracy MVP](/dot-democracy.html)
+- [Spreadsheet Filter](/spreadsheet-filter.html)
 
 ## Number Randomiser
 
