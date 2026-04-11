@@ -85,6 +85,15 @@ Use this page to browse and filter data exported from your spreadsheet.
             <tbody id="results-body"></tbody>
         </table>
     </div>
+
+    <section id="item-trend-section" aria-label="Item price trend" hidden>
+        <h3>Price per 100g by Date (Split by Shop)</h3>
+        <p id="item-trend-hint" class="helper-text"></p>
+        <div class="chart-wrap">
+            <svg id="item-trend-chart" viewBox="0 0 960 360" role="img" aria-label="Item trend line chart"></svg>
+        </div>
+        <div id="item-trend-legend" class="chart-legend"></div>
+    </section>
 </section>
 
 <style>
@@ -198,6 +207,47 @@ Use this page to browse and filter data exported from your spreadsheet.
         font-size: 0.85rem;
     }
 
+    #item-trend-section {
+        margin-top: 1rem;
+        padding-top: 0.5rem;
+    }
+
+    .chart-wrap {
+        margin-top: 0.5rem;
+        background: #ffffff;
+        border: 1px solid #d7e2eb;
+        border-radius: 8px;
+        padding: 0.5rem;
+    }
+
+    #item-trend-chart {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .chart-legend {
+        margin-top: 0.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem 0.9rem;
+    }
+
+    .chart-legend-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-size: 0.9rem;
+        color: #1f3b57;
+    }
+
+    .chart-legend-swatch {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        display: inline-block;
+    }
+
     @media (max-width: 840px) {
         .controls {
             grid-template-columns: repeat(3, minmax(150px, 1fr));
@@ -256,13 +306,31 @@ Use this page to browse and filter data exported from your spreadsheet.
         const highestPricePer100g = document.getElementById('highest-price-per-100g');
         const recentByShopHint = document.getElementById('recent-by-shop-hint');
         const recentByShopBody = document.getElementById('recent-by-shop-body');
+        const itemTrendSection = document.getElementById('item-trend-section');
+        const itemTrendHint = document.getElementById('item-trend-hint');
+        const itemTrendChart = document.getElementById('item-trend-chart');
+        const itemTrendLegend = document.getElementById('item-trend-legend');
+
+        const SVG_NS = 'http://www.w3.org/2000/svg';
+        const CHART_COLORS = [
+            '#1f77b4',
+            '#d62728',
+            '#2ca02c',
+            '#ff7f0e',
+            '#9467bd',
+            '#17becf',
+            '#8c564b',
+            '#e377c2',
+            '#bcbd22',
+            '#7f7f7f'
+        ];
 
         const state = {
             headers: [],
             rows: [],
             filteredRows: [],
-            sortColumn: '',
-            sortDirection: 'asc'
+            sortColumn: 'Date',
+            sortDirection: 'desc'
         };
 
         function parseCsv(text) {
@@ -363,6 +431,13 @@ Use this page to browse and filter data exported from your spreadsheet.
                 return 'N/A';
             }
             return `$${value.toFixed(2)}`;
+        }
+
+        function formatIsoDate(timestamp) {
+            if (!Number.isFinite(timestamp)) {
+                return '';
+            }
+            return new Date(timestamp).toISOString().slice(0, 10);
         }
 
         function formatSummaryLine(row, metric) {
@@ -565,8 +640,27 @@ Use this page to browse and filter data exported from your spreadsheet.
             });
 
             const latestRows = [...byShop.entries()]
-                .sort((left, right) => left[0].localeCompare(right[0]))
-                .map((entry) => entry[1]);
+                .map((entry) => entry[1])
+                .sort((left, right) => {
+                    const leftDate = parseDateToTimestamp(left.Date);
+                    const rightDate = parseDateToTimestamp(right.Date);
+
+                    if (!Number.isFinite(leftDate) && !Number.isFinite(rightDate)) {
+                        return (left.Shop || '').localeCompare(right.Shop || '');
+                    }
+                    if (!Number.isFinite(leftDate)) {
+                        return 1;
+                    }
+                    if (!Number.isFinite(rightDate)) {
+                        return -1;
+                    }
+
+                    if (rightDate !== leftDate) {
+                        return rightDate - leftDate;
+                    }
+
+                    return (left.Shop || '').localeCompare(right.Shop || '');
+                });
 
             if (latestRows.length === 0) {
                 recentByShopHint.textContent = 'No rows available for the current filters.';
@@ -593,6 +687,228 @@ Use this page to browse and filter data exported from your spreadsheet.
 
                 recentByShopBody.appendChild(tr);
             });
+        }
+
+        function clearChart() {
+            itemTrendChart.innerHTML = '';
+            itemTrendLegend.innerHTML = '';
+        }
+
+        function createSvgElement(tag, attributes) {
+            const element = document.createElementNS(SVG_NS, tag);
+            Object.entries(attributes).forEach(([key, value]) => {
+                element.setAttribute(key, String(value));
+            });
+            return element;
+        }
+
+        function renderLegend(groups) {
+            itemTrendLegend.innerHTML = '';
+            groups.forEach((group, index) => {
+                const color = CHART_COLORS[index % CHART_COLORS.length];
+                const legendItem = document.createElement('span');
+                legendItem.className = 'chart-legend-item';
+
+                const swatch = document.createElement('span');
+                swatch.className = 'chart-legend-swatch';
+                swatch.style.backgroundColor = color;
+
+                const label = document.createElement('span');
+                label.textContent = group.shop;
+
+                legendItem.appendChild(swatch);
+                legendItem.appendChild(label);
+                itemTrendLegend.appendChild(legendItem);
+            });
+        }
+
+        function renderItemTrendChart(rows, selectedItem) {
+            if (!selectedItem) {
+                itemTrendSection.hidden = true;
+                clearChart();
+                return;
+            }
+
+            itemTrendSection.hidden = false;
+            clearChart();
+
+            const grouped = new Map();
+            rows.forEach((row) => {
+                if (row.Item !== selectedItem) {
+                    return;
+                }
+
+                const timestamp = parseDateToTimestamp(row.Date);
+                const pricePer100g = parseNumericValue(row['Price per 100g']);
+                if (!Number.isFinite(timestamp) || !Number.isFinite(pricePer100g)) {
+                    return;
+                }
+
+                const shop = normalizeValue(row.Shop) || 'Unknown shop';
+                if (!grouped.has(shop)) {
+                    grouped.set(shop, []);
+                }
+                grouped.get(shop).push({
+                    timestamp,
+                    pricePer100g,
+                    dateText: row.Date || '',
+                    shop
+                });
+            });
+
+            const groups = [...grouped.entries()]
+                .map(([shop, points]) => ({
+                    shop,
+                    points: points.sort((a, b) => a.timestamp - b.timestamp)
+                }))
+                .filter((group) => group.points.length > 0)
+                .sort((a, b) => a.shop.localeCompare(b.shop));
+
+            if (groups.length === 0) {
+                itemTrendHint.textContent = 'No valid Date and Price per 100g values for the selected item in current filters.';
+                return;
+            }
+
+            const allPoints = groups.flatMap((group) => group.points);
+            const minDate = Math.min(...allPoints.map((point) => point.timestamp));
+            const maxDate = Math.max(...allPoints.map((point) => point.timestamp));
+            const minPriceRaw = Math.min(...allPoints.map((point) => point.pricePer100g));
+            const maxPriceRaw = Math.max(...allPoints.map((point) => point.pricePer100g));
+
+            const minPrice = minPriceRaw === maxPriceRaw ? minPriceRaw - 1 : minPriceRaw;
+            const maxPrice = minPriceRaw === maxPriceRaw ? maxPriceRaw + 1 : maxPriceRaw;
+            const safeMaxDate = minDate === maxDate ? minDate + 86400000 : maxDate;
+
+            const width = 960;
+            const height = 360;
+            const margins = {
+                top: 20,
+                right: 20,
+                bottom: 45,
+                left: 56
+            };
+            const plotWidth = width - margins.left - margins.right;
+            const plotHeight = height - margins.top - margins.bottom;
+
+            const scaleX = (value) => margins.left + ((value - minDate) / (safeMaxDate - minDate)) * plotWidth;
+            const scaleY = (value) => margins.top + ((maxPrice - value) / (maxPrice - minPrice)) * plotHeight;
+
+            const background = createSvgElement('rect', {
+                x: margins.left,
+                y: margins.top,
+                width: plotWidth,
+                height: plotHeight,
+                fill: '#ffffff'
+            });
+            itemTrendChart.appendChild(background);
+
+            const yTicks = 5;
+            for (let i = 0; i <= yTicks; i += 1) {
+                const ratio = i / yTicks;
+                const value = minPrice + (maxPrice - minPrice) * ratio;
+                const y = scaleY(value);
+
+                const grid = createSvgElement('line', {
+                    x1: margins.left,
+                    y1: y,
+                    x2: width - margins.right,
+                    y2: y,
+                    stroke: '#e5edf4',
+                    'stroke-width': 1
+                });
+                itemTrendChart.appendChild(grid);
+
+                const label = createSvgElement('text', {
+                    x: margins.left - 8,
+                    y: y + 4,
+                    'text-anchor': 'end',
+                    'font-size': 11,
+                    fill: '#4f6479'
+                });
+                label.textContent = formatCurrency(value);
+                itemTrendChart.appendChild(label);
+            }
+
+            const xTicks = Math.min(6, allPoints.length);
+            for (let i = 0; i < xTicks; i += 1) {
+                const ratio = xTicks === 1 ? 0 : i / (xTicks - 1);
+                const tickValue = minDate + (safeMaxDate - minDate) * ratio;
+                const x = scaleX(tickValue);
+
+                const grid = createSvgElement('line', {
+                    x1: x,
+                    y1: margins.top,
+                    x2: x,
+                    y2: height - margins.bottom,
+                    stroke: '#f1f6fa',
+                    'stroke-width': 1
+                });
+                itemTrendChart.appendChild(grid);
+
+                const label = createSvgElement('text', {
+                    x,
+                    y: height - margins.bottom + 18,
+                    'text-anchor': 'middle',
+                    'font-size': 11,
+                    fill: '#4f6479'
+                });
+                label.textContent = formatIsoDate(tickValue);
+                itemTrendChart.appendChild(label);
+            }
+
+            const xAxis = createSvgElement('line', {
+                x1: margins.left,
+                y1: height - margins.bottom,
+                x2: width - margins.right,
+                y2: height - margins.bottom,
+                stroke: '#8ea5bb',
+                'stroke-width': 1.25
+            });
+            const yAxis = createSvgElement('line', {
+                x1: margins.left,
+                y1: margins.top,
+                x2: margins.left,
+                y2: height - margins.bottom,
+                stroke: '#8ea5bb',
+                'stroke-width': 1.25
+            });
+            itemTrendChart.appendChild(xAxis);
+            itemTrendChart.appendChild(yAxis);
+
+            groups.forEach((group, index) => {
+                const color = CHART_COLORS[index % CHART_COLORS.length];
+                const pathData = group.points
+                    .map((point, pointIndex) => {
+                        const x = scaleX(point.timestamp);
+                        const y = scaleY(point.pricePer100g);
+                        return `${pointIndex === 0 ? 'M' : 'L'} ${x} ${y}`;
+                    })
+                    .join(' ');
+
+                const path = createSvgElement('path', {
+                    d: pathData,
+                    fill: 'none',
+                    stroke: color,
+                    'stroke-width': 2
+                });
+                itemTrendChart.appendChild(path);
+
+                group.points.forEach((point) => {
+                    const circle = createSvgElement('circle', {
+                        cx: scaleX(point.timestamp),
+                        cy: scaleY(point.pricePer100g),
+                        r: 3,
+                        fill: color
+                    });
+                    const title = createSvgElement('title', {});
+                    title.textContent = `${group.shop} | ${point.dateText} | ${formatCurrency(point.pricePer100g)}`;
+                    circle.appendChild(title);
+                    itemTrendChart.appendChild(circle);
+                });
+            });
+
+            renderLegend(groups);
+            itemTrendHint.textContent = `${allPoints.length} point(s) across ${groups.length} shop(s) for ${selectedItem}.`;
         }
 
         function applyFilters() {
@@ -641,6 +957,7 @@ Use this page to browse and filter data exported from your spreadsheet.
             renderTable(state.headers, sortedRows);
             renderSummary(state.filteredRows);
             renderMostRecentByShop(state.filteredRows);
+            renderItemTrendChart(state.filteredRows, item);
         }
 
         async function loadCsv() {
