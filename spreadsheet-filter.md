@@ -302,6 +302,17 @@ Use this page to browse and filter data exported from your spreadsheet.
 
         // Configuration
         const CSV_PATH = '/data/items.csv';
+        const ALLOWED_COLUMNS = [
+            'Date',
+            'Shop',
+            'Brand',
+            'Item',
+            'Units',
+            'Grams',
+            'Price',
+            'Price per Unit',
+            'Price per 100g'
+        ];
         // Columns that contain numeric values (used for sorting and min/max calculations)
         const NUMERIC_COLUMNS = new Set([
             'Units',
@@ -608,10 +619,11 @@ Use this page to browse and filter data exported from your spreadsheet.
         }
 
         // Convert CSV row array to object keyed by header
-        function rowToObject(headers, rowValues) {
+        function rowToObject(headers, rowValues, headerIndexMap) {
             const obj = {};
             headers.forEach((header, index) => {
-                obj[header] = normalizeValue(rowValues[index] || '');
+                const sourceIndex = typeof headerIndexMap[header] === 'number' ? headerIndexMap[header] : index;
+                obj[header] = normalizeValue(rowValues[sourceIndex] || '');
             });
             return obj;
         }
@@ -1201,10 +1213,21 @@ Use this page to browse and filter data exported from your spreadsheet.
                     throw new Error('CSV needs a header row and at least one data row.');
                 }
 
-                state.headers = parsedRows[0].map((header) => normalizeValue(header));
+                const csvHeaders = parsedRows[0].map((header) => normalizeValue(header));
+                const missingColumns = ALLOWED_COLUMNS.filter((column) => !csvHeaders.includes(column));
+                if (missingColumns.length > 0) {
+                    throw new Error(`CSV is missing required column(s): ${missingColumns.join(', ')}`);
+                }
+                const headerIndexMap = {};
+                csvHeaders.forEach((header, index) => {
+                    headerIndexMap[header] = index;
+                });
+
+                // Only use the approved columns for filter/search/sort/display.
+                state.headers = ALLOWED_COLUMNS;
                 state.rows = parsedRows
                     .slice(1)
-                    .map((row) => rowToObject(state.headers, row));
+                    .map((row) => rowToObject(state.headers, row, headerIndexMap));
 
                 buildFilterValues(state.rows);
                 hydrateStateFromUrl();
