@@ -102,6 +102,15 @@ Select an item to compare prices over time.
         </div>
         <div id="item-trend-legend" class="chart-legend"></div>
     </section>
+
+    <section id="item-unit-trend-section" aria-label="Item unit price trend" hidden>
+        <h3>Price per Unit by Date (Split by Shop)</h3>
+        <p id="item-unit-trend-hint" class="helper-text"></p>
+        <div class="chart-wrap">
+            <svg id="item-unit-trend-chart" viewBox="0 0 960 360" role="img" aria-label="Item unit price trend line chart"></svg>
+        </div>
+        <div id="item-unit-trend-legend" class="chart-legend"></div>
+    </section>
 </section>
 
 <style>
@@ -248,7 +257,8 @@ Select an item to compare prices over time.
         padding: 0.5rem;
     }
 
-    #item-trend-chart {
+    #item-trend-chart,
+    #item-unit-trend-chart {
         width: 100%;
         height: auto;
         display: block;
@@ -377,6 +387,10 @@ Select an item to compare prices over time.
         const itemTrendHint = document.getElementById('item-trend-hint');
         const itemTrendChart = document.getElementById('item-trend-chart');
         const itemTrendLegend = document.getElementById('item-trend-legend');
+        const itemUnitTrendSection = document.getElementById('item-unit-trend-section');
+        const itemUnitTrendHint = document.getElementById('item-unit-trend-hint');
+        const itemUnitTrendChart = document.getElementById('item-unit-trend-chart');
+        const itemUnitTrendLegend = document.getElementById('item-unit-trend-legend');
 
         // SVG and charting configuration
         const SVG_NS = 'http://www.w3.org/2000/svg';
@@ -595,6 +609,14 @@ Select an item to compare prices over time.
                 return 'N/A';
             }
             return `$${value.toFixed(2)}`;
+        }
+
+        function roundDownToNearestHalf(value) {
+            return Math.floor(value * 2) / 2;
+        }
+
+        function roundUpToNearestHalf(value) {
+            return Math.ceil(value * 2) / 2;
         }
 
         // Format timestamp as ISO date string (YYYY-MM-DD)
@@ -883,9 +905,9 @@ Select an item to compare prices over time.
         // ============================================================================
         // SVG-based line chart showing price trends by shop over time
         
-        function clearChart() {
-            itemTrendChart.innerHTML = '';
-            itemTrendLegend.innerHTML = '';
+        function clearChart(chartElement, legendElement) {
+            chartElement.innerHTML = '';
+            legendElement.innerHTML = '';
         }
 
         // Create an SVG element with namespace and attributes
@@ -898,8 +920,8 @@ Select an item to compare prices over time.
         }
 
         // Render chart legend showing shop names with color swatches
-        function renderLegend(groups) {
-            itemTrendLegend.innerHTML = '';
+        function renderLegend(groups, legendElement) {
+            legendElement.innerHTML = '';
             groups.forEach((group, index) => {
                 const color = CHART_COLORS[index % CHART_COLORS.length];
                 const legendItem = document.createElement('span');
@@ -914,7 +936,7 @@ Select an item to compare prices over time.
 
                 legendItem.appendChild(swatch);
                 legendItem.appendChild(label);
-                itemTrendLegend.appendChild(legendItem);
+                legendElement.appendChild(legendItem);
             });
         }
 
@@ -923,12 +945,12 @@ Select an item to compare prices over time.
         function renderItemTrendChart(rows, selectedItem) {
             if (!selectedItem) {
                 itemTrendSection.hidden = true;
-                clearChart();
+                clearChart(itemTrendChart, itemTrendLegend);
                 return;
             }
 
             itemTrendSection.hidden = false;
-            clearChart();
+            clearChart(itemTrendChart, itemTrendLegend);
 
             const grouped = new Map();
             rows.forEach((row) => {
@@ -973,8 +995,12 @@ Select an item to compare prices over time.
             const minPriceRaw = Math.min(...allPoints.map((point) => point.pricePer100g));
             const maxPriceRaw = Math.max(...allPoints.map((point) => point.pricePer100g));
 
-            const minPrice = minPriceRaw === maxPriceRaw ? minPriceRaw - 1 : minPriceRaw;
-            const maxPrice = minPriceRaw === maxPriceRaw ? maxPriceRaw + 1 : maxPriceRaw;
+            let minPrice = roundDownToNearestHalf(minPriceRaw);
+            let maxPrice = roundUpToNearestHalf(maxPriceRaw);
+            if (minPrice === maxPrice) {
+                minPrice -= 0.5;
+                maxPrice += 0.5;
+            }
             const safeMaxDate = minDate === maxDate ? minDate + 86400000 : maxDate;
 
             const width = 960;
@@ -1105,8 +1131,203 @@ Select an item to compare prices over time.
                 });
             });
 
-            renderLegend(groups);
+            renderLegend(groups, itemTrendLegend);
             itemTrendHint.textContent = `${allPoints.length} point(s) across ${groups.length} shop(s) for ${selectedItem}.`;
+        }
+
+        // Render SVG trend chart: Price per Unit over time, split by shop
+        // Only renders if an item is selected
+        function renderItemUnitTrendChart(rows, selectedItem) {
+            if (!selectedItem) {
+                itemUnitTrendSection.hidden = true;
+                clearChart(itemUnitTrendChart, itemUnitTrendLegend);
+                return;
+            }
+
+            itemUnitTrendSection.hidden = false;
+            clearChart(itemUnitTrendChart, itemUnitTrendLegend);
+
+            const grouped = new Map();
+            rows.forEach((row) => {
+                if (row.Item !== selectedItem) {
+                    return;
+                }
+
+                const timestamp = parseDateToTimestamp(row.Date);
+                const pricePerUnit = parseNumericValue(row['Price per Unit']);
+                if (!Number.isFinite(timestamp) || !Number.isFinite(pricePerUnit)) {
+                    return;
+                }
+
+                const shop = normalizeValue(row.Shop) || 'Unknown shop';
+                if (!grouped.has(shop)) {
+                    grouped.set(shop, []);
+                }
+                grouped.get(shop).push({
+                    timestamp,
+                    pricePerUnit,
+                    dateText: row.Date || '',
+                    shop
+                });
+            });
+
+            const groups = [...grouped.entries()]
+                .map(([shop, points]) => ({
+                    shop,
+                    points: points.sort((a, b) => a.timestamp - b.timestamp)
+                }))
+                .filter((group) => group.points.length > 0)
+                .sort((a, b) => a.shop.localeCompare(b.shop));
+
+            if (groups.length === 0) {
+                itemUnitTrendHint.textContent = 'No valid Date and Price per Unit values for the selected item in current filters.';
+                return;
+            }
+
+            const allPoints = groups.flatMap((group) => group.points);
+            const minDate = Math.min(...allPoints.map((point) => point.timestamp));
+            const maxDate = Math.max(...allPoints.map((point) => point.timestamp));
+            const minPriceRaw = Math.min(...allPoints.map((point) => point.pricePerUnit));
+            const maxPriceRaw = Math.max(...allPoints.map((point) => point.pricePerUnit));
+
+            let minPrice = roundDownToNearestHalf(minPriceRaw);
+            let maxPrice = roundUpToNearestHalf(maxPriceRaw);
+            if (minPrice === maxPrice) {
+                minPrice -= 0.5;
+                maxPrice += 0.5;
+            }
+            const safeMaxDate = minDate === maxDate ? minDate + 86400000 : maxDate;
+
+            const width = 960;
+            const height = 360;
+            const margins = {
+                top: 20,
+                right: 20,
+                bottom: 45,
+                left: 56
+            };
+            const plotWidth = width - margins.left - margins.right;
+            const plotHeight = height - margins.top - margins.bottom;
+
+            const scaleX = (value) => margins.left + ((value - minDate) / (safeMaxDate - minDate)) * plotWidth;
+            const scaleY = (value) => margins.top + ((maxPrice - value) / (maxPrice - minPrice)) * plotHeight;
+
+            const background = createSvgElement('rect', {
+                x: margins.left,
+                y: margins.top,
+                width: plotWidth,
+                height: plotHeight,
+                fill: '#ffffff'
+            });
+            itemUnitTrendChart.appendChild(background);
+
+            const yTicks = 5;
+            for (let i = 0; i <= yTicks; i += 1) {
+                const ratio = i / yTicks;
+                const value = minPrice + (maxPrice - minPrice) * ratio;
+                const y = scaleY(value);
+
+                const grid = createSvgElement('line', {
+                    x1: margins.left,
+                    y1: y,
+                    x2: width - margins.right,
+                    y2: y,
+                    stroke: '#e5edf4',
+                    'stroke-width': 1
+                });
+                itemUnitTrendChart.appendChild(grid);
+
+                const label = createSvgElement('text', {
+                    x: margins.left - 8,
+                    y: y + 4,
+                    'text-anchor': 'end',
+                    'font-size': 11,
+                    fill: '#4f6479'
+                });
+                label.textContent = formatCurrency(value);
+                itemUnitTrendChart.appendChild(label);
+            }
+
+            const xTicks = Math.min(6, allPoints.length);
+            for (let i = 0; i < xTicks; i += 1) {
+                const ratio = xTicks === 1 ? 0 : i / (xTicks - 1);
+                const tickValue = minDate + (safeMaxDate - minDate) * ratio;
+                const x = scaleX(tickValue);
+
+                const grid = createSvgElement('line', {
+                    x1: x,
+                    y1: margins.top,
+                    x2: x,
+                    y2: height - margins.bottom,
+                    stroke: '#f1f6fa',
+                    'stroke-width': 1
+                });
+                itemUnitTrendChart.appendChild(grid);
+
+                const label = createSvgElement('text', {
+                    x,
+                    y: height - margins.bottom + 18,
+                    'text-anchor': 'middle',
+                    'font-size': 11,
+                    fill: '#4f6479'
+                });
+                label.textContent = formatIsoDate(tickValue);
+                itemUnitTrendChart.appendChild(label);
+            }
+
+            const xAxis = createSvgElement('line', {
+                x1: margins.left,
+                y1: height - margins.bottom,
+                x2: width - margins.right,
+                y2: height - margins.bottom,
+                stroke: '#8ea5bb',
+                'stroke-width': 1.25
+            });
+            const yAxis = createSvgElement('line', {
+                x1: margins.left,
+                y1: margins.top,
+                x2: margins.left,
+                y2: height - margins.bottom,
+                stroke: '#8ea5bb',
+                'stroke-width': 1.25
+            });
+            itemUnitTrendChart.appendChild(xAxis);
+            itemUnitTrendChart.appendChild(yAxis);
+
+            groups.forEach((group, index) => {
+                const color = CHART_COLORS[index % CHART_COLORS.length];
+                const pathData = group.points
+                    .map((point, pointIndex) => {
+                        const x = scaleX(point.timestamp);
+                        const y = scaleY(point.pricePerUnit);
+                        return `${pointIndex === 0 ? 'M' : 'L'} ${x} ${y}`;
+                    })
+                    .join(' ');
+
+                const path = createSvgElement('path', {
+                    d: pathData,
+                    fill: 'none',
+                    stroke: color,
+                    'stroke-width': 2
+                });
+                itemUnitTrendChart.appendChild(path);
+
+                group.points.forEach((point) => {
+                    const circle = createSvgElement('circle', {
+                        cx: scaleX(point.timestamp),
+                        cy: scaleY(point.pricePerUnit),
+                        r: 3,
+                        fill: color
+                    });
+                    const title = createSvgElement('title', {});
+                    title.textContent = `${group.shop} | ${point.dateText} | ${formatCurrency(point.pricePerUnit)}`;
+                    circle.appendChild(title);
+                    itemUnitTrendChart.appendChild(circle);
+                });
+            });
+
+            renderLegend(groups, itemUnitTrendLegend);
+            itemUnitTrendHint.textContent = `${allPoints.length} point(s) across ${groups.length} shop(s) for ${selectedItem}.`;
         }
 
         // ============================================================================
@@ -1167,6 +1388,7 @@ Select an item to compare prices over time.
             renderSummary(state.filteredRows);
             renderMostRecentByShop(state.filteredRows);
             renderItemTrendChart(state.filteredRows, item);
+            renderItemUnitTrendChart(state.filteredRows, item);
             updateUrlFromState();
         }
 
