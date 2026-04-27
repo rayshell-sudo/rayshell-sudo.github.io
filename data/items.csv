@@ -422,13 +422,13 @@
 45265SpudshedAnnabellaPizza16507.29,5-Dec-23,Spudshed,Annabella,Pizza,1,650,7.29,$7.29,$1.12,$11.22,,AnnabellaPizza,Annabellas,Pizza,Ready Meals,Ready Meals,0
 45265SpudshedMundellaNatural Yoghurt3600032.97,5-Dec-23,Spudshed,Mundella,Natural Yoghurt,3,6000,32.97,$10.99,$0.55,$5.50,,MundellaNatural Yoghurt,Mundella,Yoghurt - Natural,Dairy & Eggs,Yoghurt,0
 45265SpudshedZucchini21.98,5-Dec-23,Spudshed,,Zucchini,2,,1.98,$0.99,,,,Zucchini,,Zucchini,Fresh Produce,Vegetables,0
-45282WoolworthsHgoldMini Desserts117.1,22-Dec-23,Woolworths,Hgold,Mini Desserts,1,,17.10,$17.10,,,,HgoldMini Desserts,,,,,0
-45282WoolworthsReady Made Meal13305.38,22-Dec-23,Woolworths,,Ready Made Meal,1,330,5.38,$5.38,$1.63,$16.30,,Ready Made Meal,,,,,0
+45282WoolworthsHgoldMini Desserts117.1,22-Dec-23,Woolworths,Hgold,Mini Desserts,1,,17.10,$17.10,,,,HgoldMini Desserts,Ignore,Ignore,,,0
+45282WoolworthsReady Made Meal13305.38,22-Dec-23,Woolworths,,Ready Made Meal,1,330,5.38,$5.38,$1.63,$16.30,,Ready Made Meal,Ignore,Ignore,,,0
 45282WoolworthsMargaret RiverEggs127008.4,22-Dec-23,Woolworths,Margaret River,Eggs,12,700,8.40,$0.70,$1.20,$12.00,,Margaret RiverEggs,Margaret River,Eggs - Free Range,Dairy & Eggs,Eggs,0
 45282WoolworthsMurray StreetChoc Fudge110008,22-Dec-23,Woolworths,Murray Street,Choc Fudge,1,1000,8.00,$8.00,$0.80,$8.00,,Murray StreetChoc Fudge,Murray Street,Ice Cream - Choc Fudge,Frozen,Frozen Snacks & Desserts,0
 45282WoolworthsBrownesMilk120004,22-Dec-23,Woolworths,Brownes,Milk,1,2000,4.00,$4.00,$0.20,$2.00,,BrownesMilk,Brownes,Milk,Dairy & Eggs,Milk,0
 45282WoolworthsMundellaNatural Yoghurt1200012.8,22-Dec-23,Woolworths,Mundella,Natural Yoghurt,1,2000,12.80,$12.80,$0.64,$6.40,,MundellaNatural Yoghurt,Mundella,Yoghurt - Natural,Dairy & Eggs,Yoghurt,0
-45284WoolworthsSavuPlates206,24-Dec-23,Woolworths,Savu,Plates,20,,6.00,$0.30,,,,SavuPlates,,,,,0
+45284WoolworthsSavuPlates206,24-Dec-23,Woolworths,Savu,Plates,20,,6.00,$0.30,,,,SavuPlates,Ignore,Ignore,,,0
 45284WoolworthsCorned Beef117.38,24-Dec-23,Woolworths,,Corned Beef,1,,17.38,$17.38,,,,Corned Beef,,Beef - Corned,Meat & Seafood,Beef,0
 45284WoolworthsRissoles127.99,24-Dec-23,Woolworths,,Rissoles,12,,7.99,$0.67,,,,Rissoles,,Beef - Rissoles,Meat & Seafood,Beef,0
 45284WoolworthsSavuPulp Forks202.2,24-Dec-23,Woolworths,Savu,Pulp Forks,20,,2.20,$0.11,,,,SavuPulp Forks,Savu,Compostable Forks,Household,Kitchen Supplies,0
@@ -458,7 +458,7 @@
 45291SpudshedWestern SonsSausage15.99,31-Dec-23,Spudshed,Western Sons,Sausage,1,,5.99,$5.99,,,,Western SonsSausage,Western Sons,Sausages,Meat & Seafood,Sausages,0
 45291WoolworthsWoolworthsSwiss Cheese Slices24009.8,31-Dec-23,Woolworths,Woolworths,Swiss Cheese Slices,2,400,9.80,$4.90,$2.45,$24.50,,WoolworthsSwiss Cheese Slices,Woolworths,Swiss Cheese - Sliced,Dairy & Eggs,Hard Cheese,0
 45291SpudshedRosellaTomato Sauce13.99,31-Dec-23,Spudshed,Rosella,Tomato Sauce,1,,3.99,$3.99,,,,RosellaTomato Sauce,Rosella,Tomato Sauce,Pantry,"Sauces, Pastes & Curry Bases",0
-45317SpudshedHealthstyleSuperfood Mix13.99,26-Jan-24,Spudshed,Healthstyle,Superfood Mix,1,,3.99,$3.99,,,,HealthstyleSuperfood Mix,,,,,0
+45317SpudshedHealthstyleSuperfood Mix13.99,26-Jan-24,Spudshed,Healthstyle,Superfood Mix,1,,3.99,$3.99,,,,HealthstyleSuperfood Mix,Ignore,Ignore,,,0
 45317SpudshedBanana19012.59,26-Jan-24,Spudshed,,Banana,1,901,2.59,$2.59,$0.29,$2.87,,Banana,,Banana,Fresh Produce,Fruit,0
 45317SpudshedPorterhouse Steak113.2,26-Jan-24,Spudshed,,Porterhouse Steak,1,,13.20,$13.20,,,,Porterhouse Steak,,Beef - Porterhouse Steak,Meat & Seafood,Beef,0
 45317SpudshedBlade Roast124.17,26-Jan-24,Spudshed,,Blade Roast,1,,24.17,$24.17,,,,Blade Roast,,Beef Blade Roast,Meat & Seafood,Beef,0
@@ -586,7 +586,7 @@
 45352Mezz Fresh ProduceLettuce Cos12.49,1-Mar-24,Mezz Fresh Produce,,Lettuce Cos,1,,2.49,$2.49,,,,Lettuce Cos,,Lettuce - Cos,Fresh Produce,Leafy Greens & Salad,0
 45352WoolworthsWoolworthsFrozen Mango110009.9,1-Mar-24,Woolworths,Woolworths,Frozen Mango,1,1000,9.90,$9.90,$0.99,$9.90,,WoolworthsFrozen Mango,Woolworths,Mango - Frozen,Frozen,Fruit,0
 45356WoolworthsBrownesMilk130005.75,5-Mar-24,Woolworths,Brownes,Milk,1,3000,5.75,$5.75,$0.19,$1.92,,BrownesMilk,Brownes,Milk,Dairy & Eggs,Milk,0
-45360SpudshedIndoor Plants112.99,9-Mar-24,Spudshed,,Indoor Plants,1,,12.99,$12.99,,,,Indoor Plants,,,,,0
+45360SpudshedIndoor Plants112.99,9-Mar-24,Spudshed,,Indoor Plants,1,,12.99,$12.99,,,,Indoor Plants,Ignore,Ignore,,,0
 45360SpudshedBanana49263.23,9-Mar-24,Spudshed,,Banana,4,926,3.23,$0.81,$0.35,$3.49,,Banana,,Banana,Fresh Produce,Fruit,0
 45360SpudshedQFFrozen Mixed Berries110009.99,9-Mar-24,Spudshed,QF,Frozen Mixed Berries,1,1000,9.99,$9.99,$1.00,$9.99,,QFFrozen Mixed Berries,QF,Berries - Mixed Frozen,Frozen,Fruit,0
 45360SpudshedQFFrozen Blueberries110009.99,9-Mar-24,Spudshed,QF,Frozen Blueberries,1,1000,9.99,$9.99,$1.00,$9.99,,QFFrozen Blueberries,QF,Blueberries - Frozen,Frozen,Fruit,0
@@ -634,7 +634,7 @@
 45368SpudshedGrape Tomato24004.98,17-Mar-24,Spudshed,,Grape Tomato,2,400,4.98,$2.49,$1.25,$12.45,,Grape Tomato,,Tomatoes - Grape,Fresh Produce,Vegetables,0
 45368SpudshedMundellaNatural Yoghurt1200010.99,17-Mar-24,Spudshed,Mundella,Natural Yoghurt,1,2000,10.99,$10.99,$0.55,$5.50,,MundellaNatural Yoghurt,Mundella,Yoghurt - Natural,Dairy & Eggs,Yoghurt,0
 45368SpudshedZucchini22.98,17-Mar-24,Spudshed,,Zucchini,2,,2.98,$1.49,,,,Zucchini,,Zucchini,Fresh Produce,Vegetables,0
-45374SpudshedPOTS ASSORTED COLCURS210,23-Mar-24,Spudshed,,POTS ASSORTED COLCURS,2,,10.00,$5.00,,,,POTS ASSORTED COLCURS,,,,,0
+45374SpudshedPOTS ASSORTED COLCURS210,23-Mar-24,Spudshed,,POTS ASSORTED COLCURS,2,,10.00,$5.00,,,,POTS ASSORTED COLCURS,Ignore,Ignore,,,0
 45374SpudshedBanana15212.08,23-Mar-24,Spudshed,,Banana,1,521,2.08,$2.08,$0.40,$3.99,,Banana,,Banana,Fresh Produce,Fruit,0
 45374SpudshedParkfieldWhole Chuck Steak125.38,23-Mar-24,Spudshed,Parkfield,Whole Chuck Steak,1,,25.38,$25.38,,,,ParkfieldWhole Chuck Steak,Parkfield,Beef Chuck Steak - Whole,Meat & Seafood,Beef,0
 45374SpudshedBeef Mince12.21,23-Mar-24,Spudshed,,Beef Mince,1,,2.21,$2.21,,,1,Beef Mince,,Beef Mince,Meat & Seafood,Beef,0
@@ -688,8 +688,8 @@
 45387WoolworthsChicken Breast Kebabs15005.13,5-Apr-24,Woolworths,,Chicken Breast Kebabs,1,500,5.13,$5.13,$1.03,$10.26,1,Chicken Breast Kebabs,,Chicken Kebabs - Breast,Meat & Seafood,Chicken - Fresh,0
 45387WoolworthsChicken Parmi Kit46406.93,5-Apr-24,Woolworths,,Chicken Parmi Kit,4,640,6.93,$1.73,$1.08,$10.83,,Chicken Parmi Kit,,Chicken Parmi Kit,Meat & Seafood,Ready Meals,0
 45387WoolworthsBrownesMilk120004.45,5-Apr-24,Woolworths,Brownes,Milk,1,2000,4.45,$4.45,$0.22,$2.23,,BrownesMilk,Brownes,Milk,Dairy & Eggs,Milk,0
-45388SpudshedCHILDREN ACTIVITY TUBES14.99,6-Apr-24,Spudshed,,CHILDREN ACTIVITY TUBES,1,,4.99,$4.99,,,,CHILDREN ACTIVITY TUBES,,,,,0
-45388SpudshedTSHIRTS ASSORTED12.99,6-Apr-24,Spudshed,,TSHIRTS ASSORTED,1,,2.99,$2.99,,,,TSHIRTS ASSORTED,,,,,0
+45388SpudshedCHILDREN ACTIVITY TUBES14.99,6-Apr-24,Spudshed,,CHILDREN ACTIVITY TUBES,1,,4.99,$4.99,,,,CHILDREN ACTIVITY TUBES,Ignore,Ignore,,,0
+45388SpudshedTSHIRTS ASSORTED12.99,6-Apr-24,Spudshed,,TSHIRTS ASSORTED,1,,2.99,$2.99,,,,TSHIRTS ASSORTED,Ignore,Ignore,,,0
 45388SpudshedBanana57663.06,6-Apr-24,Spudshed,,Banana,5,766,3.06,$0.61,$0.40,$3.99,,Banana,,Banana,Fresh Produce,Fruit,0
 45388SpudshedMargaret RiverCamembert Cheese12007.99,6-Apr-24,Spudshed,Margaret River,Camembert Cheese,1,200,7.99,$7.99,$4.00,$39.95,,Margaret RiverCamembert Cheese,Margaret River,Camembert,Dairy & Eggs,Soft Cheese,0
 45388SpudshedRed Capsicum12412.41,6-Apr-24,Spudshed,,Red Capsicum,1,241,2.41,$2.41,$1.00,$10.00,,Red Capsicum,,Capsicum - Red,Fresh Produce,Vegetables,0
@@ -762,22 +762,22 @@
 45421WoolworthsWWAlmonds Flaked 120g11203.5,9-May-24,Woolworths,WW,Almonds Flaked 120g,1,120,3.50,$3.50,$2.92,$29.17,,WWAlmonds Flaked 120g,,Almonds - Flaked,Pantry,"Nuts, Seeds & Dried Fruit",0
 45421WoolworthsEssentialsButter Unsalted 250g12503.7,9-May-24,Woolworths,Essentials,Butter Unsalted 250g,1,250,3.70,$3.70,$1.48,$14.80,,EssentialsButter Unsalted 250g,,Butter - Unsalted,Dairy & Eggs,Butter & Spreads,0
 45421Woolworths1 RiverFree Range Eggs 1kg 18pk1810009.95,9-May-24,Woolworths,1 River,Free Range Eggs 1kg 18pk,18,1000,9.95,$0.55,$1.00,$9.95,,1 RiverFree Range Eggs 1kg 18pk,Hill River,Eggs - Free Range,Dairy & Eggs,Eggs,0
-45421Woolworths–Lemon Loose11270.88,9-May-24,Woolworths,–,Lemon Loose,1,127,0.88,$0.88,$0.69,$6.93,,–Lemon Loose,,Lemon,Fresh Produce,Fruit,0
+45421WoolworthsLemon Loose11270.88,9-May-24,Woolworths,,Lemon Loose,1,127,0.88,$0.88,$0.69,$6.93,,Lemon Loose,,Lemon,Fresh Produce,Fruit,0
 45421WoolworthsWWMaple Syrup 250ml12506.6,9-May-24,Woolworths,WW,Maple Syrup 250ml,1,250,6.60,$6.60,$2.64,$26.40,,WWMaple Syrup 250ml,,Maple Syrup,Pantry,"Sweeteners, Chocolate & Desserts",0
 45421WoolworthsBrownesMilk Full Cream Plas Btl 3L130005.75,9-May-24,Woolworths,Brownes,Milk Full Cream Plas Btl 3L,1,3000,5.75,$5.75,$0.19,$1.92,,BrownesMilk Full Cream Plas Btl 3L,Brownes,Milk,Dairy & Eggs,Milk,0
-45424Mezz Fresh Produce–Bananas QLD1535,12-May-24,Mezz Fresh Produce,–,Bananas QLD,1,535,,$0.00,$0.00,$0.00,,–Bananas QLD,,Banana,Fresh Produce,Fruit,0
+45424Mezz Fresh ProduceBananas QLD1535,12-May-24,Mezz Fresh Produce,,Bananas QLD,1,535,,$0.00,$0.00,$0.00,,Bananas QLD,,Banana,Fresh Produce,Fruit,0
 45424WoolworthsEssentialsBreadcrumbs 750g17503,12-May-24,Woolworths,Essentials,Breadcrumbs 750g,1,750,3.00,$3.00,$0.40,$4.00,,EssentialsBreadcrumbs 750g,,Breadcrumbs - Plain,Pantry,"Bread, Wraps & Dry Goods",0
-45424Mezz Fresh Produce–Broccolini13.5,12-May-24,Mezz Fresh Produce,–,Broccolini,1,,3.50,$3.50,,,,–Broccolini,,Broccolini,Fresh Produce,Vegetables,0
-45424Mezz Fresh Produce–Carrots Loose15100.79,12-May-24,Mezz Fresh Produce,–,Carrots Loose,1,510,0.79,$0.79,$0.15,$1.55,,–Carrots Loose,,Carrot,Fresh Produce,Vegetables,0
-45424Mezz Fresh Produce–Celery Stalk11261.5,12-May-24,Mezz Fresh Produce,–,Celery Stalk,1,126,1.50,$1.50,$1.19,$11.90,,–Celery Stalk,,Celery,Fresh Produce,Vegetables,0
+45424Mezz Fresh ProduceBroccolini13.5,12-May-24,Mezz Fresh Produce,,Broccolini,1,,3.50,$3.50,,,,Broccolini,,Broccolini,Fresh Produce,Vegetables,0
+45424Mezz Fresh ProduceCarrots Loose15100.79,12-May-24,Mezz Fresh Produce,,Carrots Loose,1,510,0.79,$0.79,$0.15,$1.55,,Carrots Loose,,Carrot,Fresh Produce,Vegetables,0
+45424Mezz Fresh ProduceCelery Stalk11261.5,12-May-24,Mezz Fresh Produce,,Celery Stalk,1,126,1.50,$1.50,$1.19,$11.90,,Celery Stalk,,Celery,Fresh Produce,Vegetables,0
 45424WoolworthsSBWClassic Crumb Fish Of The Day 320g13207.5,12-May-24,Woolworths,SBW,Classic Crumb Fish Of The Day 320g,1,320,7.50,$7.50,$2.34,$23.44,,SBWClassic Crumb Fish Of The Day 320g,SBW,"Fish Fillets - Frozen, Crumbed",Meat & Seafood,Frozen Meat & Seafood,0
 45424WoolworthsLighthouseFlour Plain Bread & Pizza 1kg110004,12-May-24,Woolworths,Lighthouse,Flour Plain Bread & Pizza 1kg,1,1000,4.00,$4.00,$0.40,$4.00,,LighthouseFlour Plain Bread & Pizza 1kg,Lighthouse,Flour - Bakers,Pantry,Baking & Flour,0
-45424Mezz Fresh Produce–Mushrooms16458.38,12-May-24,Mezz Fresh Produce,–,Mushrooms,1,645,8.38,$8.38,$1.30,$12.99,,–Mushrooms,,Mushroom,Fresh Produce,Vegetables,0
-45424Mezz Fresh Produce–Onions Brown12652.13,12-May-24,Mezz Fresh Produce,–,Onions Brown,1,265,2.13,$2.13,$0.80,$8.04,,–Onions Brown,,Onion - Brown,Fresh Produce,Vegetables,0
+45424Mezz Fresh ProduceMushrooms16458.38,12-May-24,Mezz Fresh Produce,,Mushrooms,1,645,8.38,$8.38,$1.30,$12.99,,Mushrooms,,Mushroom,Fresh Produce,Vegetables,0
+45424Mezz Fresh ProduceOnions Brown12652.13,12-May-24,Mezz Fresh Produce,,Onions Brown,1,265,2.13,$2.13,$0.80,$8.04,,Onions Brown,,Onion - Brown,Fresh Produce,Vegetables,0
 45424WoolworthsPerfect ItalianoGrated Parmesan 125g11254.5,12-May-24,Woolworths,Perfect Italiano,Grated Parmesan 125g,1,125,4.50,$4.50,$3.60,$36.00,,Perfect ItalianoGrated Parmesan 125g,Perfect Italiano,Parmesan - Grated,Dairy & Eggs,Hard Cheese,0
 45424WoolworthsClassic ItaliaRed Pesto 190g11903.5,12-May-24,Woolworths,Classic Italia,Red Pesto 190g,1,190,3.50,$3.50,$1.84,$18.42,,Classic ItaliaRed Pesto 190g,Classic Italia,Pesto - Red,Pantry,"Sauces, Pastes & Curry Bases",0
 45424WoolworthsContinentalStock Pot Beef 112g11124.5,12-May-24,Woolworths,Continental,Stock Pot Beef 112g,1,112,4.50,$4.50,$4.02,$40.18,,ContinentalStock Pot Beef 112g,Continental,Stock Pot - Beef,Pantry,"Spices, Herbs & Seasonings",0
-45430SpudshedGolden CanePalms230,18-May-24,Spudshed,Golden Cane,Palms,2,,30.00,$15.00,,,,Golden CanePalms,,,,,0
+45430SpudshedGolden CanePalms230,18-May-24,Spudshed,Golden Cane,Palms,2,,30.00,$15.00,,,,Golden CanePalms,Ignore,Ignore,,,0
 45430SpudshedAvocado10.99,18-May-24,Spudshed,,Avocado,1,,0.99,$0.99,,,,Avocado,,Avocado,Fresh Produce,Vegetables,0
 45430SpudshedBanana110314,18-May-24,Spudshed,,Banana,1,1031,4.00,$4.00,$0.39,$3.88,,Banana,,Banana,Fresh Produce,Fruit,0
 45430SpudshedBlue HeavenDanish Blue Cheese12.99,18-May-24,Spudshed,Blue Heaven,Danish Blue Cheese,1,,2.99,$2.99,,,,Blue HeavenDanish Blue Cheese,Blue Heaven,Blue Cheese - Danish,Dairy & Eggs,Soft Cheese,0
@@ -812,7 +812,7 @@
 45430SpudshedBirds EyeGarden Mix110005.79,18-May-24,Spudshed,Birds Eye,Garden Mix,1,1000,5.79,$5.79,$0.58,$5.79,,Birds EyeGarden Mix,Birds Eye,Vegetables - Garden Mix,Frozen,Vegetables,0
 45430SpudshedMundellaNatural Yoghurt120008.99,18-May-24,Spudshed,Mundella,Natural Yoghurt,1,2000,8.99,$8.99,$0.45,$4.50,,MundellaNatural Yoghurt,Mundella,Yoghurt - Natural,Dairy & Eggs,Yoghurt,0
 45430SpudshedZucchini86,18-May-24,Spudshed,,Zucchini,8,,6.00,$0.75,,,,Zucchini,,Zucchini,Fresh Produce,Vegetables,0
-45440SpudshedBusiness Shirts11.99,28-May-24,Spudshed,,Business Shirts,1,,1.99,$1.99,,,,Business Shirts,,,,,0
+45440SpudshedBusiness Shirts11.99,28-May-24,Spudshed,,Business Shirts,1,,1.99,$1.99,,,,Business Shirts,Ignore,Ignore,,,0
 45440SpudshedBirds EyeCauliflower Risotto840007.92,28-May-24,Spudshed,Birds Eye,Cauliflower Risotto,8,4000,7.92,$0.99,$0.20,$1.98,,Birds EyeCauliflower Risotto,Birds Eye,Cauliflower Risotto,Frozen,Ready Meals,0
 45440SpudshedChicken Breast114.12,28-May-24,Spudshed,,Chicken Breast,1,,14.12,$14.12,,,,Chicken Breast,,Chicken Breast,Meat & Seafood,Chicken - Fresh,0
 45440SpudshedAuroraCoffee Italian Ground Coffee12505.99,28-May-24,Spudshed,Aurora,Coffee Italian Ground Coffee,1,250,5.99,$5.99,$2.40,$23.96,,AuroraCoffee Italian Ground Coffee,Aurora,Coffee - Ground,Pantry,"Coffee, Tea & Hot Drinks",0
@@ -889,7 +889,7 @@
 45469WoolworthsHerculesCompost Bags504,26-Jun-24,Woolworths,Hercules,Compost Bags,50,,4.00,$0.08,,,,HerculesCompost Bags,Hercules,Compost Bags,Household,Cleaning,0
 45469WoolworthsK-rooKangaroo Herb and Garlic Steaks330006,26-Jun-24,Woolworths,K-roo,Kangaroo Herb and Garlic Steaks,3,3000,6.00,$2.00,$0.20,$2.00,1,K-rooKangaroo Herb and Garlic Steaks,K-roo,Kangaroo Steaks - Herb & Garlic,Meat & Seafood,Other Meat,0
 45469WoolworthsBrownesMilk130005.75,26-Jun-24,Woolworths,Brownes,Milk,1,3000,5.75,$5.75,$0.19,$1.92,,BrownesMilk,Brownes,Milk,Dairy & Eggs,Milk,0
-45472ColesBondsTrunks226,29-Jun-24,Coles,Bonds,Trunks,2,,26.00,$13.00,,,1,BondsTrunks,,,,,0
+45472ColesBondsTrunks226,29-Jun-24,Coles,Bonds,Trunks,2,,26.00,$13.00,,,1,BondsTrunks,Ignore,Ignore,,,0
 45472Kakulas BrothersAlmonds Slivered1142521.59,29-Jun-24,Kakulas Brothers,,Almonds Slivered,1,1425,21.59,$21.59,$1.52,$15.15,,Almonds Slivered,,Almonds - Slivered,Pantry,"Nuts, Seeds & Dried Fruit",0
 45472ColesAFBlack Olives sliced14406,29-Jun-24,Coles,AF,Black Olives sliced,1,440,6.00,$6.00,$1.36,$13.64,,AFBlack Olives sliced,AF,Black Olives - Sliced,Pantry,Canned Vegetables & Tomatoes,0
 45472ColesColesSalted Butter15006.4,29-Jun-24,Coles,Coles,Salted Butter,1,500,6.40,$6.40,$1.28,$12.80,,ColesSalted Butter,Coles,Butter - Salted,Dairy & Eggs,Butter & Spreads,0
@@ -928,7 +928,7 @@
 45473SpudshedBirds EyeGarden Mix3300017.37,30-Jun-24,Spudshed,Birds Eye,Garden Mix,3,3000,17.37,$5.79,$0.58,$5.79,,Birds EyeGarden Mix,Birds Eye,Vegetables - Garden Mix,Frozen,Vegetables,0
 45473SpudshedMundellaNatural Yoghurt2400017.98,30-Jun-24,Spudshed,Mundella,Natural Yoghurt,2,4000,17.98,$8.99,$0.45,$4.50,,MundellaNatural Yoghurt,Mundella,Yoghurt - Natural,Dairy & Eggs,Yoghurt,0
 45473SpudshedZucchini22.58,30-Jun-24,Spudshed,,Zucchini,2,,2.58,$1.29,,,,Zucchini,,Zucchini,Fresh Produce,Vegetables,0
-45479SpudshedHeatzoneSocks23.98,6-Jul-24,Spudshed,Heatzone,Socks,2,,3.98,$1.99,,,,HeatzoneSocks,,,,,0
+45479SpudshedHeatzoneSocks23.98,6-Jul-24,Spudshed,Heatzone,Socks,2,,3.98,$1.99,,,,HeatzoneSocks,Ignore,Ignore,,,0
 45479SpudshedBTBlack Olives Pitted14503.69,6-Jul-24,Spudshed,BT,Black Olives Pitted,1,450,3.69,$3.69,$0.82,$8.20,,BTBlack Olives Pitted,B/Terra,Black Olives - Pitted,Pantry,Canned Vegetables & Tomatoes,0
 45479SpudshedQFFrozen Blueberries2200017.98,6-Jul-24,Spudshed,QF,Frozen Blueberries,2,2000,17.98,$8.99,$0.90,$8.99,,QFFrozen Blueberries,QF,Blueberries - Frozen,Frozen,Fruit,0
 45479SpudshedRed Capsicum25315.3,6-Jul-24,Spudshed,,Red Capsicum,2,531,5.30,$2.65,$1.00,$9.98,,Red Capsicum,,Capsicum - Red,Fresh Produce,Vegetables,0
@@ -967,7 +967,7 @@
 45487AldiCream13002.79,14-Jul-24,Aldi,,Cream,1,300,2.79,$2.79,$0.93,$9.30,,Cream,,Cream - Pure,Dairy & Eggs,Cream,0
 45487AldiMilk130004.49,14-Jul-24,Aldi,,Milk,1,3000,4.49,$4.49,$0.15,$1.50,,Milk,,Milk,Dairy & Eggs,Milk,0
 45487AldiPeppermint Tea803.38,14-Jul-24,Aldi,,Peppermint Tea,80,,3.38,$0.04,,,,Peppermint Tea,,Tea - Peppermint,Pantry,"Coffee, Tea & Hot Drinks",0
-45493SpudshedHeatzoneSocks23,20-Jul-24,Spudshed,Heatzone,Socks,2,,3.00,$1.50,,,,HeatzoneSocks,,,,,0
+45493SpudshedHeatzoneSocks23,20-Jul-24,Spudshed,Heatzone,Socks,2,,3.00,$1.50,,,,HeatzoneSocks,Ignore,Ignore,,,0
 45493WoolworthsGladMedium Bin Bags283.3,20-Jul-24,Woolworths,Glad,Medium Bin Bags,28,,3.30,$0.12,,,,GladMedium Bin Bags,Glad,Bin Bags - Medium,Household,Cleaning,0
 45493SpudshedB/terraBlack Beans412005.56,20-Jul-24,Spudshed,B/terra,Black Beans,4,1200,5.56,$1.39,$0.46,$4.63,,B/terraBlack Beans,B/Terra,Black Beans - Canned,Pantry,Canned Beans & Legumes,0
 45493SpudshedRed Capsicum25865.85,20-Jul-24,Spudshed,,Red Capsicum,2,586,5.85,$2.93,$1.00,$9.98,,Red Capsicum,,Capsicum - Red,Fresh Produce,Vegetables,0
@@ -1029,7 +1029,7 @@
 45506WoolworthsWoolworthsBrown Rice Microwave 25003.5,2-Aug-24,Woolworths,Woolworths,Brown Rice Microwave ,2,500,3.50,$1.75,$0.70,$7.00,,WoolworthsBrown Rice Microwave ,Woolworths,Rice - Brown Microwave,Pantry,"Pasta, Noodles, Beans and Rice",0
 45506WoolworthsContinentalStock Pot41124.5,2-Aug-24,Woolworths,Continental,Stock Pot,4,112,4.50,$1.13,$4.02,$40.18,,ContinentalStock Pot,Continental,Stock Pot - Chicken,Pantry,"Spices, Herbs & Seasonings",0
 45506WoolworthsLa GinaDiced Tomato28002.8,2-Aug-24,Woolworths,La Gina,Diced Tomato,2,800,2.80,$1.40,$0.35,$3.50,,La GinaDiced Tomato,La Gina,Tomatoes - Diced,Pantry,Canned Vegetables & Tomatoes,0
-45507SpudshedLadies Socks14.99,3-Aug-24,Spudshed,,Ladies Socks,1,,4.99,$4.99,,,,Ladies Socks,,,,,0
+45507SpudshedLadies Socks14.99,3-Aug-24,Spudshed,,Ladies Socks,1,,4.99,$4.99,,,,Ladies Socks,Ignore,Ignore,,,0
 45507SpudshedPorterhouse48.22,3-Aug-24,Spudshed,,Porterhouse,4,,8.22,$2.06,,,1,Porterhouse,,Beef - Porterhouse Steak,Meat & Seafood,Beef,0
 45507SpudshedQFMixed Berries110008.99,3-Aug-24,Spudshed,QF,Mixed Berries,1,1000,8.99,$8.99,$0.90,$8.99,,QFMixed Berries,QF,Berries - Mixed Frozen,Frozen,Fruit,0
 45507ColesRoast Chicken10,3-Aug-24,Coles,,Roast Chicken,1,,0.00,$0.00,,,1,Roast Chicken,,Chicken - Roast,Meat & Seafood,Chicken - Fresh,0
@@ -1333,7 +1333,7 @@
 45599SpudshedZucchini34.47,3-Nov-24,Spudshed,,Zucchini,3,,4.47,$1.49,,,,Zucchini,,Zucchini,Fresh Produce,Vegetables,0
 45602WoolworthsLavazzaCoffee Beans150017,6-Nov-24,Woolworths,Lavazza,Coffee Beans,1,500,17.00,$17.00,$3.40,$34.00,,LavazzaCoffee Beans,Lavazza,Coffee - Beans,Pantry,"Coffee, Tea & Hot Drinks",0
 45602WoolworthsMocconaCoffee120013.5,6-Nov-24,Woolworths,Moccona,Coffee,1,200,13.50,$13.50,$6.75,$67.50,,MocconaCoffee,Moccona,Coffee - Instant,Pantry,"Coffee, Tea & Hot Drinks",0
-45606SpudshedGolden Cane Palms119.99,10-Nov-24,Spudshed,,Golden Cane Palms,1,,19.99,$19.99,,,,Golden Cane Palms,,,,,0
+45606SpudshedGolden Cane Palms119.99,10-Nov-24,Spudshed,,Golden Cane Palms,1,,19.99,$19.99,,,,Golden Cane Palms,Ignore,Ignore,,,0
 45606SpudshedRed Capsicum25355.34,10-Nov-24,Spudshed,,Red Capsicum,2,535,5.34,$2.67,$1.00,$9.98,,Red Capsicum,,Capsicum - Red,Fresh Produce,Vegetables,0
 45606SpudshedChicken Thigh126.55,10-Nov-24,Spudshed,,Chicken Thigh,1,,26.55,$26.55,,,,Chicken Thigh,,Chicken Thigh,Meat & Seafood,Chicken - Fresh,0
 45606SpudshedHaagen DaasYuzu Icecream14203.99,10-Nov-24,Spudshed,Haagen Daas,Yuzu Icecream,1,420,3.99,$3.99,$0.95,$9.50,,Haagen DaasYuzu Icecream,Haagen-Dazs,Ice Cream - Yuzu,Frozen,Frozen Snacks & Desserts,0
@@ -1709,9 +1709,9 @@
 45747ColesBrownesMilk130005.75,31-Mar-25,Coles,Brownes,Milk,1,3000,5.75,$5.75,$0.19,$1.92,,BrownesMilk,Brownes,Milk,Dairy & Eggs,Milk,0
 45747ColesColesGreek Yoghurt Light110004.4,31-Mar-25,Coles,Coles,Greek Yoghurt Light,1,1000,4.40,$4.40,$0.44,$4.40,,ColesGreek Yoghurt Light,Coles,Yoghurt - Greek Light,Dairy & Eggs,Yoghurt,0
 45747ColesChobaniNatural Yoghurt19077.9,31-Mar-25,Coles,Chobani,Natural Yoghurt,1,907,7.90,$7.90,$0.87,$8.71,,ChobaniNatural Yoghurt,Chobani,Yoghurt - Natural,Dairy & Eggs,Yoghurt,0
-45749Flinders Fruit & Veg–DICED TOMATOES 400g28003,2-Apr-25,Flinders Fruit & Veg,–,DICED TOMATOES 400g,2,800,3.00,$1.50,$0.38,$3.75,,–DICED TOMATOES 400g,,Tomatoes - Diced,Pantry,Canned Vegetables & Tomatoes,0
-45749Flinders Fruit & Veg–CHERRY/GRAPE TOMATO PP18.94,2-Apr-25,Flinders Fruit & Veg,–,CHERRY/GRAPE TOMATO PP,1,,8.94,$8.94,,,,–CHERRY/GRAPE TOMATO PP,,Tomatoes - Grape,Fresh Produce,Vegetables,0
-45749Flinders Fruit & Veg–WHOLE PEELED TOMATOES 400g14001.99,2-Apr-25,Flinders Fruit & Veg,–,WHOLE PEELED TOMATOES 400g,1,400,1.99,$1.99,$0.50,$4.98,,–WHOLE PEELED TOMATOES 400g,,Tomatoes - Whole,Pantry,Canned Vegetables & Tomatoes,0
+45749Flinders Fruit & VegDICED TOMATOES 400g28003,2-Apr-25,Flinders Fruit & Veg,,DICED TOMATOES 400g,2,800,3.00,$1.50,$0.38,$3.75,,DICED TOMATOES 400g,,Tomatoes - Diced,Pantry,Canned Vegetables & Tomatoes,0
+45749Flinders Fruit & VegCHERRY/GRAPE TOMATO PP18.94,2-Apr-25,Flinders Fruit & Veg,,CHERRY/GRAPE TOMATO PP,1,,8.94,$8.94,,,,CHERRY/GRAPE TOMATO PP,,Tomatoes - Grape,Fresh Produce,Vegetables,0
+45749Flinders Fruit & VegWHOLE PEELED TOMATOES 400g14001.99,2-Apr-25,Flinders Fruit & Veg,,WHOLE PEELED TOMATOES 400g,1,400,1.99,$1.99,$0.50,$4.98,,WHOLE PEELED TOMATOES 400g,,Tomatoes - Whole,Pantry,Canned Vegetables & Tomatoes,0
 45750WoolworthsWoolworthsThickened Cream16004.5,3-Apr-25,Woolworths,Woolworths,Thickened Cream,1,600,4.50,$4.50,$0.75,$7.50,,WoolworthsThickened Cream,Woolworths,Cream - Thickened,Dairy & Eggs,Cream,0
 45750Mezz Fresh ProduceSwiss Brown Mushroom14105.33,3-Apr-25,Mezz Fresh Produce,,Swiss Brown Mushroom,1,410,5.33,$5.33,$1.30,$13.00,,Swiss Brown Mushroom,,Mushrooms - Swiss Brown,Fresh Produce,Vegetables,0
 45750Mezz Fresh ProduceRoyal Blue Potatoes112755.09,3-Apr-25,Mezz Fresh Produce,,Royal Blue Potatoes,1,1275,5.09,$5.09,$0.40,$3.99,,Royal Blue Potatoes,,Potatoes - Royal Blue,Fresh Produce,Vegetables,0
@@ -1754,46 +1754,46 @@
 45753SpudshedZucchini21.98,6-Apr-25,Spudshed,,Zucchini,2,,1.98,$0.99,,,,Zucchini,,Zucchini,Fresh Produce,Vegetables,0
 45757ColesWestern StarSalted Butter15008,10-Apr-25,Coles,Western Star,Salted Butter,1,500,8.00,$8.00,$1.60,$16.00,,Western StarSalted Butter,Western Star,Butter - Salted,Dairy & Eggs,Butter & Spreads,0
 45757ColesMcKenziesTapioca Flour26008,10-Apr-25,Coles,McKenzies,Tapioca Flour,2,600,8.00,$4.00,$1.33,$13.33,,McKenziesTapioca Flour,McKenzies,Flour - Tapioca,Pantry,Baking & Flour,0
-45760AldiCoffee Beans1100016.99,13-Apr-25,Aldi,,Coffee Beans,1,1000,16.99,$16.99,$1.70,$16.99,,Coffee Beans,,Coffee - Beans,Pantry,"Coffee, Tea & Hot Drinks",1
-45760Local Fresh MarketCoriander12.99,13-Apr-25,Local Fresh Market,,Coriander,1,,2.99,$2.99,,,,Coriander,,Coriander - Fresh,Fresh Produce,Fresh Herbs & Aromatics,1
-45760AldiFrozen Corn110004.19,13-Apr-25,Aldi,,Frozen Corn,1,1000,4.19,$4.19,$0.42,$4.19,,Frozen Corn,,Corn - Kernels,Frozen,Vegetables,1
-45760AldiGreek Yoghurt1200010.99,13-Apr-25,Aldi,,Greek Yoghurt,1,2000,10.99,$10.99,$0.55,$5.50,,Greek Yoghurt,,Greek Yoghurt,Dairy & Eggs,Yoghurt,1
-45760Local Fresh MarketJun PacificKonjac Noodles411.16,13-Apr-25,Local Fresh Market,Jun Pacific,Konjac Noodles,4,,11.16,$2.79,,,,Jun PacificKonjac Noodles,Jun Pacific,Konjac Noodles,Pantry,"Pasta, Noodles, Beans and Rice",1
-45760Local Fresh MarketLemongrass1250.5,13-Apr-25,Local Fresh Market,,Lemongrass,1,25,0.50,$0.50,$2.00,$20.00,,Lemongrass,,Lemongrass,Fresh Produce,Fresh Herbs & Aromatics,1
-45763ColesRoast Chicken10,16-Apr-25,Coles,,Roast Chicken,1,,0.00,$0.00,,,1,Roast Chicken,,Chicken - Roast,Meat & Seafood,Chicken - Fresh,1
-45763ColesEggs127009.7,16-Apr-25,Coles,,Eggs,12,700,9.70,$0.81,$1.39,$13.86,,Eggs,,Eggs - Fresh,Dairy & Eggs,Eggs,1
-45763ColesBrownesMilk130005.75,16-Apr-25,Coles,Brownes,Milk,1,3000,5.75,$5.75,$0.19,$1.92,,BrownesMilk,Brownes,Milk,Dairy & Eggs,Milk,1
-45768SpudshedRed Capsicum19104.54,21-Apr-25,Spudshed,,Red Capsicum,1,910,4.54,$4.54,$0.50,$4.99,,Red Capsicum,,Capsicum - Red,Fresh Produce,Vegetables,1
-45768SpudshedBrunswickTasty Cheese1100011.99,21-Apr-25,Spudshed,Brunswick,Tasty Cheese,1,1000,11.99,$11.99,$1.20,$11.99,,BrunswickTasty Cheese,Brunswick,Cheese - Tasty,Dairy & Eggs,Hard Cheese,1
-45768SpudshedChicken Marinated22.99,21-Apr-25,Spudshed,,Chicken Marinated,2,,2.99,$1.50,,,,Chicken Marinated,,Chicken - Marinated,Meat & Seafood,Chicken - Fresh,1
-45768SpudshedBlue LineRed Emporer Fillets44007,21-Apr-25,Spudshed,Blue Line,Red Emporer Fillets,4,400,7.00,$1.75,$1.75,$17.50,,Blue LineRed Emporer Fillets,Blue Line,Fish Fillets - Red Emperor,Meat & Seafood,Seafood - Frozen,1
-45768SpudshedMillersBakers Flour220002.98,21-Apr-25,Spudshed,Millers,Bakers Flour,2,2000,2.98,$1.49,$0.15,$1.49,,MillersBakers Flour,Millers,Flour - Bakers,Pantry,Baking & Flour,1
-45768SpudshedBrownesMilk120004.29,21-Apr-25,Spudshed,Brownes,Milk,1,2000,4.29,$4.29,$0.21,$2.15,,BrownesMilk,Brownes,Milk,Dairy & Eggs,Milk,1
-45768SpudshedBrown Onion1120002.49,21-Apr-25,Spudshed,,Brown Onion,11,2000,2.49,$0.23,$0.12,$1.25,,Brown Onion,,Onion - Brown,Fresh Produce,Vegetables,1
-45768SpudshedAnnabellaPizza16507.29,21-Apr-25,Spudshed,Annabella,Pizza,1,650,7.29,$7.29,$1.12,$11.22,,AnnabellaPizza,Annabellas,Pizza,Ready Meals,Ready Meals,1
-45768SpudshedQFFrozen Raspberries110009.99,21-Apr-25,Spudshed,QF,Frozen Raspberries,1,1000,9.99,$9.99,$1.00,$9.99,,QFFrozen Raspberries,QF,Raspberries - Frozen,Frozen,Fruit,1
-45768SpudshedBlue LineTuna Kebab44007,21-Apr-25,Spudshed,Blue Line,Tuna Kebab,4,400,7.00,$1.75,$1.75,$17.50,,Blue LineTuna Kebab,Blue Line,Tuna - Kebab,Meat & Seafood,Fish,1
-45768SpudshedFarmers UnionGreek Yoghurt110006.29,21-Apr-25,Spudshed,Farmers Union,Greek Yoghurt,1,1000,6.29,$6.29,$0.63,$6.29,,Farmers UnionGreek Yoghurt,Farmers Union,Yoghurt - Greek,Dairy & Eggs,Yoghurt,1
-45768SpudshedFarmers UnionGreek Yoghurt110006.29,21-Apr-25,Spudshed,Farmers Union,Greek Yoghurt,1,1000,6.29,$6.29,$0.63,$6.29,,Farmers UnionGreek Yoghurt,Farmers Union,Yoghurt - Greek,Dairy & Eggs,Yoghurt,1
-45768SpudshedJays DesiYoghurt110005.99,21-Apr-25,Spudshed,Jays Desi,Yoghurt,1,1000,5.99,$5.99,$0.60,$5.99,,Jays DesiYoghurt,Jays Desi,Yoghurt - Natural,Dairy & Eggs,Yoghurt,1
-45768SpudshedZucchini10.69,21-Apr-25,Spudshed,,Zucchini,1,,0.69,$0.69,,,,Zucchini,,Zucchini,Fresh Produce,Vegetables,1
-45771SpudshedCapriccioButter Beans14001.49,24-Apr-25,Spudshed,Capriccio,Butter Beans,1,400,1.49,$1.49,$0.37,$3.73,,CapriccioButter Beans,Capriccio,Beans - Butter,Pantry,Canned Beans & Legumes,1
-45771SpudshedB/TerraCannelinni Beans312004.39,24-Apr-25,Spudshed,B/Terra,Cannelinni Beans,3,1200,4.39,$1.46,$0.37,$3.66,,B/TerraCannelinni Beans,B/Terra,Cannellini Beans - Canned,Pantry,Canned Beans & Legumes,1
-45771SpudshedGreen Capsicum14552.27,24-Apr-25,Spudshed,,Green Capsicum,1,455,2.27,$2.27,$0.50,$4.99,,Green Capsicum,,Capsicum - Green,Fresh Produce,Vegetables,1
-45771SpudshedRed Capsicum15002.5,24-Apr-25,Spudshed,,Red Capsicum,1,500,2.50,$2.50,$0.50,$5.00,,Red Capsicum,,Capsicum - Red,Fresh Produce,Vegetables,1
-45771SpudshedLilyDaleChicken Thigh1113917.07,24-Apr-25,Spudshed,LilyDale,Chicken Thigh,1,1139,17.07,$17.07,$1.50,$14.99,,LilyDaleChicken Thigh,Lilydale,Chicken Thigh - Free Range,Meat & Seafood,Chicken - Fresh,1
-45771SpudshedB/TerraChickpeas24002.78,24-Apr-25,Spudshed,B/Terra,Chickpeas,2,400,2.78,$1.39,$0.70,$6.95,,B/TerraChickpeas,B/Terra,Chickpeas - Canned,Pantry,Canned Beans & Legumes,1
-45771SpudshedBickfordsLemon Barley Cordial17505.49,24-Apr-25,Spudshed,Bickfords,Lemon Barley Cordial,1,750,5.49,$5.49,$0.73,$7.32,,BickfordsLemon Barley Cordial,Bickfords,Cordial - Lemon Barley,Beverages,Cordials & Syrups,1
-45771SpudshedEggplant45.96,24-Apr-25,Spudshed,,Eggplant,4,,5.96,$1.49,,,,Eggplant,,Eggplant,Fresh Produce,Vegetables,1
-45771SpudshedLemon13652.55,24-Apr-25,Spudshed,,Lemon,1,365,2.55,$2.55,$0.70,$6.99,,Lemon,,Lemon,Fresh Produce,Fruit,1
-45771SpudshedLemongrass1501,24-Apr-25,Spudshed,,Lemongrass,1,50,1.00,$1.00,$2.00,$20.00,,Lemongrass,,Lemongrass,Fresh Produce,Fresh Herbs & Aromatics,1
-45771SpudshedBrejulsOregano1101.99,24-Apr-25,Spudshed,Brejuls,Oregano,1,10,1.99,$1.99,$19.90,$199.00,,BrejulsOregano,Brejuls,Oregano - Dried,Pantry,"Spices, Herbs & Seasonings",1
-45771SpudshedLa DoriaTomato Passata17002.49,24-Apr-25,Spudshed,La Doria,Tomato Passata,1,700,2.49,$2.49,$0.36,$3.56,,La DoriaTomato Passata,La Doria,Passata - Tomato,Pantry,Canned Vegetables & Tomatoes,1
-45771SpudshedBrejulsThyme1101.99,24-Apr-25,Spudshed,Brejuls,Thyme,1,10,1.99,$1.99,$19.90,$199.00,,BrejulsThyme,Brejuls,Thyme - Fresh,Fresh Produce,Fresh Herbs & Aromatics,1
-45771SpudshedTomato110002.99,24-Apr-25,Spudshed,,Tomato,1,1000,2.99,$2.99,$0.30,$2.99,,Tomato,,Tomatoes,Fresh Produce,Vegetables,1
-45771SpudshedAus GoldCrushed Tomato416003.96,24-Apr-25,Spudshed,Aus Gold,Crushed Tomato,4,1600,3.96,$0.99,$0.25,$2.48,,Aus GoldCrushed Tomato,Aus Gold,Tomatoes - Crushed,Pantry,Canned Vegetables & Tomatoes,1
-45771SpudshedGrape Tomato24003,24-Apr-25,Spudshed,,Grape Tomato,2,400,3.00,$1.50,$0.75,$7.50,,Grape Tomato,,Tomatoes - Grape,Fresh Produce,Vegetables,1
-45771SpudshedZucchini21.98,24-Apr-25,Spudshed,,Zucchini,2,,1.98,$0.99,,,,Zucchini,,Zucchini,Fresh Produce,Vegetables,1
+45760AldiCoffee Beans1100016.99,13-Apr-25,Aldi,,Coffee Beans,1,1000,16.99,$16.99,$1.70,$16.99,,Coffee Beans,,Coffee - Beans,Pantry,"Coffee, Tea & Hot Drinks",0
+45760Local Fresh MarketCoriander12.99,13-Apr-25,Local Fresh Market,,Coriander,1,,2.99,$2.99,,,,Coriander,,Coriander - Fresh,Fresh Produce,Fresh Herbs & Aromatics,0
+45760AldiFrozen Corn110004.19,13-Apr-25,Aldi,,Frozen Corn,1,1000,4.19,$4.19,$0.42,$4.19,,Frozen Corn,,Corn - Kernels,Frozen,Vegetables,0
+45760AldiGreek Yoghurt1200010.99,13-Apr-25,Aldi,,Greek Yoghurt,1,2000,10.99,$10.99,$0.55,$5.50,,Greek Yoghurt,,Greek Yoghurt,Dairy & Eggs,Yoghurt,0
+45760Local Fresh MarketJun PacificKonjac Noodles411.16,13-Apr-25,Local Fresh Market,Jun Pacific,Konjac Noodles,4,,11.16,$2.79,,,,Jun PacificKonjac Noodles,Jun Pacific,Konjac Noodles,Pantry,"Pasta, Noodles, Beans and Rice",0
+45760Local Fresh MarketLemongrass1250.5,13-Apr-25,Local Fresh Market,,Lemongrass,1,25,0.50,$0.50,$2.00,$20.00,,Lemongrass,,Lemongrass,Fresh Produce,Fresh Herbs & Aromatics,0
+45763ColesRoast Chicken10,16-Apr-25,Coles,,Roast Chicken,1,,0.00,$0.00,,,1,Roast Chicken,,Chicken - Roast,Meat & Seafood,Chicken - Fresh,0
+45763ColesEggs127009.7,16-Apr-25,Coles,,Eggs,12,700,9.70,$0.81,$1.39,$13.86,,Eggs,,Eggs - Fresh,Dairy & Eggs,Eggs,0
+45763ColesBrownesMilk130005.75,16-Apr-25,Coles,Brownes,Milk,1,3000,5.75,$5.75,$0.19,$1.92,,BrownesMilk,Brownes,Milk,Dairy & Eggs,Milk,0
+45768SpudshedRed Capsicum19104.54,21-Apr-25,Spudshed,,Red Capsicum,1,910,4.54,$4.54,$0.50,$4.99,,Red Capsicum,,Capsicum - Red,Fresh Produce,Vegetables,0
+45768SpudshedBrunswickTasty Cheese1100011.99,21-Apr-25,Spudshed,Brunswick,Tasty Cheese,1,1000,11.99,$11.99,$1.20,$11.99,,BrunswickTasty Cheese,Brunswick,Cheese - Tasty,Dairy & Eggs,Hard Cheese,0
+45768SpudshedChicken Marinated22.99,21-Apr-25,Spudshed,,Chicken Marinated,2,,2.99,$1.50,,,,Chicken Marinated,,Chicken - Marinated,Meat & Seafood,Chicken - Fresh,0
+45768SpudshedBlue LineRed Emporer Fillets44007,21-Apr-25,Spudshed,Blue Line,Red Emporer Fillets,4,400,7.00,$1.75,$1.75,$17.50,,Blue LineRed Emporer Fillets,Blue Line,Fish Fillets - Red Emperor,Meat & Seafood,Seafood - Frozen,0
+45768SpudshedMillersBakers Flour220002.98,21-Apr-25,Spudshed,Millers,Bakers Flour,2,2000,2.98,$1.49,$0.15,$1.49,,MillersBakers Flour,Millers,Flour - Bakers,Pantry,Baking & Flour,0
+45768SpudshedBrownesMilk120004.29,21-Apr-25,Spudshed,Brownes,Milk,1,2000,4.29,$4.29,$0.21,$2.15,,BrownesMilk,Brownes,Milk,Dairy & Eggs,Milk,0
+45768SpudshedBrown Onion1120002.49,21-Apr-25,Spudshed,,Brown Onion,11,2000,2.49,$0.23,$0.12,$1.25,,Brown Onion,,Onion - Brown,Fresh Produce,Vegetables,0
+45768SpudshedAnnabellaPizza16507.29,21-Apr-25,Spudshed,Annabella,Pizza,1,650,7.29,$7.29,$1.12,$11.22,,AnnabellaPizza,Annabellas,Pizza,Ready Meals,Ready Meals,0
+45768SpudshedQFFrozen Raspberries110009.99,21-Apr-25,Spudshed,QF,Frozen Raspberries,1,1000,9.99,$9.99,$1.00,$9.99,,QFFrozen Raspberries,QF,Raspberries - Frozen,Frozen,Fruit,0
+45768SpudshedBlue LineTuna Kebab44007,21-Apr-25,Spudshed,Blue Line,Tuna Kebab,4,400,7.00,$1.75,$1.75,$17.50,,Blue LineTuna Kebab,Blue Line,Tuna - Kebab,Meat & Seafood,Fish,0
+45768SpudshedFarmers UnionGreek Yoghurt110006.29,21-Apr-25,Spudshed,Farmers Union,Greek Yoghurt,1,1000,6.29,$6.29,$0.63,$6.29,,Farmers UnionGreek Yoghurt,Farmers Union,Yoghurt - Greek,Dairy & Eggs,Yoghurt,0
+45768SpudshedFarmers UnionGreek Yoghurt110006.29,21-Apr-25,Spudshed,Farmers Union,Greek Yoghurt,1,1000,6.29,$6.29,$0.63,$6.29,,Farmers UnionGreek Yoghurt,Farmers Union,Yoghurt - Greek,Dairy & Eggs,Yoghurt,0
+45768SpudshedJays DesiYoghurt110005.99,21-Apr-25,Spudshed,Jays Desi,Yoghurt,1,1000,5.99,$5.99,$0.60,$5.99,,Jays DesiYoghurt,Jays Desi,Yoghurt - Natural,Dairy & Eggs,Yoghurt,0
+45768SpudshedZucchini10.69,21-Apr-25,Spudshed,,Zucchini,1,,0.69,$0.69,,,,Zucchini,,Zucchini,Fresh Produce,Vegetables,0
+45771SpudshedCapriccioButter Beans14001.49,24-Apr-25,Spudshed,Capriccio,Butter Beans,1,400,1.49,$1.49,$0.37,$3.73,,CapriccioButter Beans,Capriccio,Beans - Butter,Pantry,Canned Beans & Legumes,0
+45771SpudshedB/TerraCannelinni Beans312004.39,24-Apr-25,Spudshed,B/Terra,Cannelinni Beans,3,1200,4.39,$1.46,$0.37,$3.66,,B/TerraCannelinni Beans,B/Terra,Cannellini Beans - Canned,Pantry,Canned Beans & Legumes,0
+45771SpudshedGreen Capsicum14552.27,24-Apr-25,Spudshed,,Green Capsicum,1,455,2.27,$2.27,$0.50,$4.99,,Green Capsicum,,Capsicum - Green,Fresh Produce,Vegetables,0
+45771SpudshedRed Capsicum15002.5,24-Apr-25,Spudshed,,Red Capsicum,1,500,2.50,$2.50,$0.50,$5.00,,Red Capsicum,,Capsicum - Red,Fresh Produce,Vegetables,0
+45771SpudshedLilyDaleChicken Thigh1113917.07,24-Apr-25,Spudshed,LilyDale,Chicken Thigh,1,1139,17.07,$17.07,$1.50,$14.99,,LilyDaleChicken Thigh,Lilydale,Chicken Thigh - Free Range,Meat & Seafood,Chicken - Fresh,0
+45771SpudshedB/TerraChickpeas24002.78,24-Apr-25,Spudshed,B/Terra,Chickpeas,2,400,2.78,$1.39,$0.70,$6.95,,B/TerraChickpeas,B/Terra,Chickpeas - Canned,Pantry,Canned Beans & Legumes,0
+45771SpudshedBickfordsLemon Barley Cordial17505.49,24-Apr-25,Spudshed,Bickfords,Lemon Barley Cordial,1,750,5.49,$5.49,$0.73,$7.32,,BickfordsLemon Barley Cordial,Bickfords,Cordial - Lemon Barley,Beverages,Cordials & Syrups,0
+45771SpudshedEggplant45.96,24-Apr-25,Spudshed,,Eggplant,4,,5.96,$1.49,,,,Eggplant,,Eggplant,Fresh Produce,Vegetables,0
+45771SpudshedLemon13652.55,24-Apr-25,Spudshed,,Lemon,1,365,2.55,$2.55,$0.70,$6.99,,Lemon,,Lemon,Fresh Produce,Fruit,0
+45771SpudshedLemongrass1501,24-Apr-25,Spudshed,,Lemongrass,1,50,1.00,$1.00,$2.00,$20.00,,Lemongrass,,Lemongrass,Fresh Produce,Fresh Herbs & Aromatics,0
+45771SpudshedBrejulsOregano1101.99,24-Apr-25,Spudshed,Brejuls,Oregano,1,10,1.99,$1.99,$19.90,$199.00,,BrejulsOregano,Brejuls,Oregano - Dried,Pantry,"Spices, Herbs & Seasonings",0
+45771SpudshedLa DoriaTomato Passata17002.49,24-Apr-25,Spudshed,La Doria,Tomato Passata,1,700,2.49,$2.49,$0.36,$3.56,,La DoriaTomato Passata,La Doria,Passata - Tomato,Pantry,Canned Vegetables & Tomatoes,0
+45771SpudshedBrejulsThyme1101.99,24-Apr-25,Spudshed,Brejuls,Thyme,1,10,1.99,$1.99,$19.90,$199.00,,BrejulsThyme,Brejuls,Thyme - Fresh,Fresh Produce,Fresh Herbs & Aromatics,0
+45771SpudshedTomato110002.99,24-Apr-25,Spudshed,,Tomato,1,1000,2.99,$2.99,$0.30,$2.99,,Tomato,,Tomatoes,Fresh Produce,Vegetables,0
+45771SpudshedAus GoldCrushed Tomato416003.96,24-Apr-25,Spudshed,Aus Gold,Crushed Tomato,4,1600,3.96,$0.99,$0.25,$2.48,,Aus GoldCrushed Tomato,Aus Gold,Tomatoes - Crushed,Pantry,Canned Vegetables & Tomatoes,0
+45771SpudshedGrape Tomato24003,24-Apr-25,Spudshed,,Grape Tomato,2,400,3.00,$1.50,$0.75,$7.50,,Grape Tomato,,Tomatoes - Grape,Fresh Produce,Vegetables,0
+45771SpudshedZucchini21.98,24-Apr-25,Spudshed,,Zucchini,2,,1.98,$0.99,,,,Zucchini,,Zucchini,Fresh Produce,Vegetables,0
 45778WoolworthsPlaistoweDark Chocolate11804.8,1-May-25,Woolworths,Plaistowe,Dark Chocolate,1,180,4.80,$4.80,$2.67,$26.67,,PlaistoweDark Chocolate,Plaistowe,Chocolate - Dark,Pantry,Snacks (Pantry‑Stored),1
 45778WoolworthsDoveDeoderant21005,1-May-25,Woolworths,Dove,Deoderant,2,100,5.00,$2.50,$5.00,$50.00,,DoveDeoderant,Dove,Deodorant,Personal Care,Deodorant,1
 45778WoolworthsDoveDeoderant Men1502.5,1-May-25,Woolworths,Dove,Deoderant Men,1,50,2.50,$2.50,$5.00,$50.00,,DoveDeoderant Men,Dove,Deodorant,Personal Care,Deodorant,1
@@ -2024,7 +2024,7 @@
 45858WoolworthsPanini Roll33.75,20-Jul-25,Woolworths,,Panini Roll,3,,3.75,$1.25,,,,Panini Roll,,Panini Rolls,Pantry,"Bread, Wraps & Dry Goods",1
 45858WoolworthsTrolliStrawberry Clouds23005,20-Jul-25,Woolworths,Trolli,Strawberry Clouds,2,300,5.00,$2.50,$1.67,$16.67,,TrolliStrawberry Clouds,Trolli,Strawberry Clouds,Pantry,Snacks (Pantry‑Stored),1
 45858WoolworthsWoolworthsYoghurt High Protein19006,20-Jul-25,Woolworths,Woolworths,Yoghurt High Protein,1,900,6.00,$6.00,$0.67,$6.67,,WoolworthsYoghurt High Protein,Woolworths,Yoghurt - High Protein,Dairy & Eggs,Yoghurt,1
-45864SpudshedHealth PlusVegetable something17.99,26-Jul-25,Spudshed,Health Plus,Vegetable something,1,,7.99,$7.99,,,,Health PlusVegetable something,,,,,1
+45864SpudshedHealth PlusVegetable something17.99,26-Jul-25,Spudshed,Health Plus,Vegetable something,1,,7.99,$7.99,,,,Health PlusVegetable something,Ignore,Ignore,,,1
 45864SpudshedQFFrozen Blueberries110009.99,26-Jul-25,Spudshed,QF,Frozen Blueberries,1,1000,9.99,$9.99,$1.00,$9.99,,QFFrozen Blueberries,QF,Blueberries - Frozen,Frozen,Fruit,1
 45864SpudshedCapriccioCannelinni Beans28002.98,26-Jul-25,Spudshed,Capriccio,Cannelinni Beans,2,800,2.98,$1.49,$0.37,$3.73,,CapriccioCannelinni Beans,Capriccio,Cannellini Beans - Canned,Pantry,Canned Beans & Legumes,1
 45864SpudshedCapriccioCannelinni Beans28002.98,26-Jul-25,Spudshed,Capriccio,Cannelinni Beans,2,800,2.98,$1.49,$0.37,$3.73,,CapriccioCannelinni Beans,Capriccio,Cannellini Beans - Canned,Pantry,Canned Beans & Legumes,1
@@ -2293,8 +2293,8 @@
 45942Local Fresh MarketSpring Onion11.79,12-Oct-25,Local Fresh Market,,Spring Onion,1,,1.79,$1.79,,,,Spring Onion,,Spring Onion,Fresh Produce,Leafy Greens & Salad,1
 45942AldiToothpaste12002.09,12-Oct-25,Aldi,,Toothpaste,1,200,2.09,$2.09,$1.05,$10.45,,Toothpaste,,Toothpaste,Household,Hygiene,1
 45942AldiCanned Tuna65706.54,12-Oct-25,Aldi,,Canned Tuna,6,570,6.54,$1.09,$1.15,$11.47,,Canned Tuna,,Tuna - Canned,Pantry,Canned Fish & Seafood,1
-45948AldiRhinoGarden Gloves110.99,18-Oct-25,Aldi,Rhino,Garden Gloves,1,,10.99,$10.99,,,,RhinoGarden Gloves,,,,,1
-45948AldiGardening Shoes111.99,18-Oct-25,Aldi,,Gardening Shoes,1,12,,$0.00,$0.00,$0.00,,Gardening Shoes,,,,,1
+45948AldiRhinoGarden Gloves110.99,18-Oct-25,Aldi,Rhino,Garden Gloves,1,,10.99,$10.99,,,,RhinoGarden Gloves,Ignore,Ignore,,,1
+45948AldiGardening Shoes111.99,18-Oct-25,Aldi,,Gardening Shoes,1,12,,$0.00,$0.00,$0.00,,Gardening Shoes,Ignore,Ignore,,,1
 45948SpudshedPorterhouse Roast1399685.57,18-Oct-25,Spudshed,,Porterhouse Roast,1,3996,85.57,$85.57,$2.14,$21.41,,Porterhouse Roast,,Beef - Porterhouse Roast,Meat & Seafood,Beef,1
 45948SpudshedB/TerraBlack Olives Sliced29009.38,18-Oct-25,Spudshed,B/Terra,Black Olives Sliced,2,900,9.38,$4.69,$1.04,$10.42,,B/TerraBlack Olives Sliced,B/Terra,Black Olives - Sliced,Pantry,Canned Vegetables & Tomatoes,1
 45948SpudshedQFFrozen Blueberries110009.99,18-Oct-25,Spudshed,QF,Frozen Blueberries,1,1000,9.99,$9.99,$1.00,$9.99,,QFFrozen Blueberries,QF,Blueberries - Frozen,Frozen,Fruit,1
@@ -2324,7 +2324,7 @@
 45949WoolworthsContinentalCup of Soup - Roast Chicken2751.4,19-Oct-25,Woolworths,Continental,Cup of Soup - Roast Chicken,2,75,1.40,$0.70,$1.87,$18.67,,ContinentalCup of Soup - Roast Chicken,Continental,Soup Cup - Roast Chicken,Pantry,Soups (Shelf-Stable),1
 45949WoolworthsBaby Spinach12805,19-Oct-25,Woolworths,,Baby Spinach,1,280,5.00,$5.00,$1.79,$17.86,,Baby Spinach,,Spinach - Baby,Fresh Produce,Leafy Greens & Salad,1
 45949WoolworthsTwiningsPeppermint Tea806.75,19-Oct-25,Woolworths,Twinings,Peppermint Tea,80,,6.75,$0.08,,,,TwiningsPeppermint Tea,Twinings,Tea - Peppermint,Pantry,"Coffee, Tea & Hot Drinks",1
-45956SpudshedTraditional BBQ Pack12.49,26-Oct-25,Spudshed,,Traditional BBQ Pack,1,,2.49,$2.49,,,,Traditional BBQ Pack,,,,,1
+45956SpudshedTraditional BBQ Pack12.49,26-Oct-25,Spudshed,,Traditional BBQ Pack,1,,2.49,$2.49,,,,Traditional BBQ Pack,Ignore,Ignore,,,1
 45956SpudshedBocconcini18.49,26-Oct-25,Spudshed,,Bocconcini,1,,8.49,$8.49,,,,Bocconcini,,Bocconcini,Dairy & Eggs,Soft Cheese,1
 45956SpudshedGalati BrosChicken Breast1160016.78,26-Oct-25,Spudshed,Galati Bros,Chicken Breast,1,1600,16.78,$16.78,$1.05,$10.49,,Galati BrosChicken Breast,Galati Bros,Chicken Breast,Meat & Seafood,Chicken - Fresh,1
 45956SpudshedChicken Hearts111608.11,26-Oct-25,Spudshed,,Chicken Hearts,1,1160,8.11,$8.11,$0.70,$6.99,,Chicken Hearts,,Chicken Hearts,Meat & Seafood,Chicken - Fresh,1
@@ -2347,7 +2347,7 @@
 45960AldiDiced Tomato28002.38,30-Oct-25,Aldi,,Diced Tomato,2,800,2.38,$1.19,$0.30,$2.98,,Diced Tomato,,Tomatoes - Diced,Pantry,Canned Vegetables & Tomatoes,1
 45966WoolworthsBrownesMilk130005.95,5-Nov-25,Woolworths,Brownes,Milk,1,3000,5.95,$5.95,$0.20,$1.98,,BrownesMilk,Brownes,Milk,Dairy & Eggs,Milk,1
 45966WoolworthsBrownesMilk130005.95,5-Nov-25,Woolworths,Brownes,Milk,1,3000,5.95,$5.95,$0.20,$1.98,,BrownesMilk,Brownes,Milk,Dairy & Eggs,Milk,1
-45970SpudshedLucky DuckSushi Hiko110004.99,9-Nov-25,Spudshed,Lucky Duck,Sushi Hiko,1,1000,4.99,$4.99,$0.50,$4.99,,Lucky DuckSushi Hiko,,,,,1
+45970SpudshedLucky DuckSushi Hiko110004.99,9-Nov-25,Spudshed,Lucky Duck,Sushi Hiko,1,1000,4.99,$4.99,$0.50,$4.99,,Lucky DuckSushi Hiko,Ignore,Ignore,,,1
 45970Kakulas BrothersChoc Coated Almonds11604.31,9-Nov-25,Kakulas Brothers,,Choc Coated Almonds,1,160,4.31,$4.31,$2.69,$26.94,,Choc Coated Almonds,,Almonds - Chocolate Coated,Pantry,Snacks (Pantry‑Stored),1
 45970Kakulas BrothersAlmonds Slivered1148537.27,9-Nov-25,Kakulas Brothers,,Almonds Slivered,1,1485,37.27,$37.27,$2.51,$25.10,,Almonds Slivered,,Almonds - Slivered,Pantry,"Nuts, Seeds & Dried Fruit",1
 45970SpudshedBean Sprouts12502.49,9-Nov-25,Spudshed,,Bean Sprouts,1,250,2.49,$2.49,$1.00,$9.96,,Bean Sprouts,,Bean Sprouts,Fresh Produce,Vegetables,1
@@ -2484,12 +2484,12 @@
 46004AldiALDIRice Cake23003.18,13-Dec-25,Aldi,ALDI,Rice Cake,2,300,3.18,$1.59,$1.06,$10.60,,ALDIRice Cake,ALDI,Rice Cakes,Pantry,Snacks (Pantry‑Stored),1
 46004Local Fresh MarketStrawberries12501.5,13-Dec-25,Local Fresh Market,,Strawberries,1,250,1.50,$1.50,$0.60,$6.00,,Strawberries,,Strawberries,Fresh Produce,Fruit,1
 46004AldiALDISunscreen12009.49,13-Dec-25,Aldi,ALDI,Sunscreen,1,200,9.49,$9.49,$4.75,$47.45,,ALDISunscreen,ALDI,Sunscreen,Personal Care,Sun Care,1
-46004Local Fresh MarketProduceGrape/Cherry Tomatoes19055.42,13-Dec-25,Local Fresh Market,Produce,Grape/Cherry Tomatoes,1,905,5.42,$5.42,$0.60,$5.99,,ProduceGrape/Cherry Tomatoes,,Tomatoes - Cherry/Grape,Fresh Produce,Vegetables,1
+46004Local Fresh MarketProduceGrape/Cherry Tomatoes19055.42,13-Dec-25,Local Fresh Market,Produce,Grape/Cherry Tomatoes,1,905,5.42,$5.42,$0.60,$5.99,,ProduceGrape/Cherry Tomatoes,,Tomatoes - Grape,Fresh Produce,Vegetables,1
 46004AldiALDISmoked Tuna Cans32853.27,13-Dec-25,Aldi,ALDI,Smoked Tuna Cans,3,285,3.27,$1.09,$1.15,$11.47,,ALDISmoked Tuna Cans,ALDI,Tuna - Smoked Canned,Pantry,Canned Fish & Seafood,1
 46004AldiALDISmoked Tuna Cans1951.09,13-Dec-25,Aldi,ALDI,Smoked Tuna Cans,1,95,1.09,$1.09,$1.15,$11.47,,ALDISmoked Tuna Cans,ALDI,Tuna - Smoked Canned,Pantry,Canned Fish & Seafood,1
 46004AldiALDIYoghurt Greek Style Natural2180011.38,13-Dec-25,Aldi,ALDI,Yoghurt Greek Style Natural,2,1800,11.38,$5.69,$0.63,$6.32,,ALDIYoghurt Greek Style Natural,ALDI,Yoghurt - Greek Natural,Dairy & Eggs,Yoghurt,1
 46004Local Fresh MarketProduceZucchini22,13-Dec-25,Local Fresh Market,Produce,Zucchini,2,,2.00,$1.00,,,,ProduceZucchini,,Zucchini,Fresh Produce,Vegetables,1
-46005AldiALDISpecially Selected Marinating Tray114.99,14-Dec-25,Aldi,ALDI,Specially Selected Marinating Tray,1,,14.99,$14.99,,,,ALDISpecially Selected Marinating Tray,,,,,1
+46005AldiALDISpecially Selected Marinating Tray114.99,14-Dec-25,Aldi,ALDI,Specially Selected Marinating Tray,1,,14.99,$14.99,,,,ALDISpecially Selected Marinating Tray,Ignore,Ignore,,,1
 46005AldiALDICamembert Cheese12004.49,14-Dec-25,Aldi,ALDI,Camembert Cheese,1,200,4.49,$4.49,$2.25,$22.45,,ALDICamembert Cheese,ALDI,Camembert,Dairy & Eggs,Soft Cheese,1
 46005AldiALDIShredded Light Cheese15005.99,14-Dec-25,Aldi,ALDI,Shredded Light Cheese,1,500,5.99,$5.99,$1.20,$11.98,,ALDIShredded Light Cheese,ALDI,"Cheese - Shredded, Light",Dairy & Eggs,Hard Cheese,1
 46005AldiALDICream Cheese Spreadable12502.39,14-Dec-25,Aldi,ALDI,Cream Cheese Spreadable,1,250,2.39,$2.39,$0.96,$9.56,,ALDICream Cheese Spreadable,ALDI,Cream Cheese Spread,Dairy & Eggs,Soft Cheese,1
@@ -2531,7 +2531,7 @@
 46012AldiALDIHummus110005.99,21-Dec-25,Aldi,ALDI,Hummus,1,1000,5.99,$5.99,$0.60,$5.99,,ALDIHummus,ALDI,Hommus,Deli,Dips,1
 46012Local Fresh MarketAsian PantryRice Noodles (Chicken Flavour)12.79,21-Dec-25,Local Fresh Market,Asian Pantry,Rice Noodles (Chicken Flavour),1,,2.79,$2.79,,,,Asian PantryRice Noodles (Chicken Flavour),Asian Pantry,Rice Noodles - Chicken Flavour,Pantry,Ready Meals,1
 46012AldiALDISardines in Brine22203.18,21-Dec-25,Aldi,ALDI,Sardines in Brine,2,220,3.18,$1.59,$1.45,$14.45,,ALDISardines in Brine,ALDI,Sardines - Canned,Pantry,Canned Fish & Seafood,1
-46012Local Fresh MarketProduceGrape/Cherry Tomatoes16754.04,21-Dec-25,Local Fresh Market,Produce,Grape/Cherry Tomatoes,1,675,4.04,$4.04,$0.60,$5.99,,ProduceGrape/Cherry Tomatoes,,Tomatoes - Cherry/Grape,Fresh Produce,Vegetables,1
+46012Local Fresh MarketProduceGrape/Cherry Tomatoes16754.04,21-Dec-25,Local Fresh Market,Produce,Grape/Cherry Tomatoes,1,675,4.04,$4.04,$0.60,$5.99,,ProduceGrape/Cherry Tomatoes,,Tomatoes - Grape,Fresh Produce,Vegetables,1
 46012AldiALDITuna Flavoured21902.18,21-Dec-25,Aldi,ALDI,Tuna Flavoured,2,190,2.18,$1.09,$1.15,$11.47,,ALDITuna Flavoured,ALDI,Tuna - Flavoured,Pantry,Canned Fish & Seafood,1
 46012AldiALDIYoghurt Greek Style Natural19005.69,21-Dec-25,Aldi,ALDI,Yoghurt Greek Style Natural,1,900,5.69,$5.69,$0.63,$6.32,,ALDIYoghurt Greek Style Natural,ALDI,Yoghurt - Greek Natural,Dairy & Eggs,Yoghurt,1
 46012Local Fresh MarketProduceZucchini24,21-Dec-25,Local Fresh Market,Produce,Zucchini,2,,4.00,$2.00,,,,ProduceZucchini,,Zucchini,Fresh Produce,Vegetables,1
@@ -2574,7 +2574,7 @@
 46020WoolworthsWW ESSParacetamol 500mg 16pk321.28,29-Dec-25,Woolworths,WW ESS,Paracetamol 500mg 16pk,32,,1.28,$0.04,,,,WW ESSParacetamol 500mg 16pk,Woolworths Essentials,Paracetamol,Household,Medicine,1
 46020WoolworthsWWGreek Salad Kit14001.9,29-Dec-25,Woolworths,WW,Greek Salad Kit,1,400,1.90,$1.90,$0.48,$4.75,1,WWGreek Salad Kit,Woolworths,Salad Kit - Greek,Fresh Produce,Leafy Greens & Salad,1
 46021ALDIALDIChps Crk Orig 230g12302.69,30-Dec-25,ALDI,ALDI,Chps Crk Orig 230g,1,230,2.69,$2.69,$1.17,$11.70,,ALDIChps Crk Orig 230g,,Chips - Crinkle Original,Pantry,Snacks (Pantry‑Stored),1
-46021ALDIALDIDS Chips S&V 175g11752.99,30-Dec-25,ALDI,ALDI,DS Chips S&V 175g,1,175,2.99,$2.99,$1.71,$17.09,,ALDIDS Chips S&V 175g,DS,Chips - Salt & Vinegar,,,1
+46021ALDIALDIDS Chips S&V 175g11752.99,30-Dec-25,ALDI,ALDI,DS Chips S&V 175g,1,175,2.99,$2.99,$1.71,$17.09,,ALDIDS Chips S&V 175g,DS,Chips - Salt & Vinegar,Pantry,Snacks (Pantry‑Stored),1
 46021ALDIALDICones Choc 4pk 475ml14753.39,30-Dec-25,ALDI,ALDI,Cones Choc 4pk 475ml,1,475,3.39,$3.39,$0.71,$7.14,,ALDICones Choc 4pk 475ml,,Ice Cream - Cones,Frozen,Frozen Snacks & Desserts,1
 46021ALDIALDISnakes 520g15203.19,30-Dec-25,ALDI,ALDI,Snakes 520g,1,520,3.19,$3.19,$0.61,$6.13,,ALDISnakes 520g,,Jelly Snakes,Pantry,Snacks (Pantry‑Stored),1
 46021ALDIALDIFacial Tissues 224pk2241.89,30-Dec-25,ALDI,ALDI,Facial Tissues 224pk,224,,1.89,$0.01,,,,ALDIFacial Tissues 224pk,,Tissues,Household,Household Items,1
@@ -2649,8 +2649,8 @@
 46065WoolworthsMr Chen’sThin Egg Noodles26002.2,12-Feb-26,Woolworths,Mr Chen’s,Thin Egg Noodles,2,600,2.20,$1.10,$0.37,$3.67,1,Mr Chen’sThin Egg Noodles,Mr Chen’s,Noodles - Thin Egg,Pantry,"Pasta, Noodles, Beans and Rice",1
 46065WoolworthsWipexPaper Towel 3pk34.5,12-Feb-26,Woolworths,Wipex,Paper Towel 3pk,3,,4.50,$1.50,,,,WipexPaper Towel 3pk,Wipex,Paper Towel,Household,Household Items,1
 46065WoolworthsJalnaGreek Plus Natural Yoghurt110007,12-Feb-26,Woolworths,Jalna,Greek Plus Natural Yoghurt,1,1000,7.00,$7.00,$0.70,$7.00,1,JalnaGreek Plus Natural Yoghurt,Jalna,Yoghurt - Greek Natural,Dairy & Eggs,Yoghurt,1
-46067AldiAldiFertiliser110009.99,14-Feb-26,Aldi,Aldi,Fertiliser,1,1000,9.99,$9.99,$1.00,$9.99,,AldiFertiliser,,,,,1
-46067AldiGarden EssentialsGarden Item13.99,14-Feb-26,Aldi,Garden Essentials,Garden Item,1,,3.99,$3.99,,,,Garden EssentialsGarden Item,,,,,1
+46067AldiAldiFertiliser110009.99,14-Feb-26,Aldi,Aldi,Fertiliser,1,1000,9.99,$9.99,$1.00,$9.99,,AldiFertiliser,Ignore,Ignore,,,1
+46067AldiGarden EssentialsGarden Item13.99,14-Feb-26,Aldi,Garden Essentials,Garden Item,1,,3.99,$3.99,,,,Garden EssentialsGarden Item,Ignore,Ignore,,,1
 46067Local Fresh MarketJ&R Beansprout11.99,14-Feb-26,Local Fresh Market,,J&R Beansprout,1,,1.99,$1.99,,,,J&R Beansprout,J&R,Beansprout,Fresh Produce,Vegetables,1
 46067Local Fresh MarketRed Capsicum18955.36,14-Feb-26,Local Fresh Market,,Red Capsicum,1,895,5.36,$5.36,$0.60,$5.99,,Red Capsicum,,Capsicum - Red,Fresh Produce,Vegetables,1
 46067Local Fresh MarketCarrots15651.41,14-Feb-26,Local Fresh Market,,Carrots,1,565,1.41,$1.41,$0.25,$2.50,,Carrots,,Carrot,Fresh Produce,Vegetables,1
@@ -2704,7 +2704,7 @@
 46080Local Fresh MarketCHERRY TOMATO19352.8,27-Feb-26,Local Fresh Market,,CHERRY TOMATO,1,935,2.80,$2.80,$0.30,$2.99,,CHERRY TOMATO,,Tomatoes - Cherry,Fresh Produce,Vegetables,1
 46081AldiPeanut Butter17557.39,28-Feb-26,Aldi,,Peanut Butter,1,755,7.39,$7.39,$0.98,$9.79,,Peanut Butter,,Peanut Butter,Pantry,Butter & Spreads,1
 46081AldiVegemite13707.19,28-Feb-26,Aldi,,Vegemite,1,370,7.19,$7.19,$1.94,$19.43,,Vegemite,Kraft,Vegemite,Pantry,Butter & Spreads,1
-46082Kakulas BrothersMystery Item11900.95,1-Mar-26,Kakulas Brothers,,Mystery Item,1,190,0.95,$0.95,$0.50,$5.00,,Mystery Item,,,,,1
+46082Kakulas BrothersMystery Item11900.95,1-Mar-26,Kakulas Brothers,,Mystery Item,1,190,0.95,$0.95,$0.50,$5.00,,Mystery Item,Ignore,Ignore,,,1
 46082Kakulas BrothersSlivered Almonds185021.34,1-Mar-26,Kakulas Brothers,,Slivered Almonds,1,850,21.34,$21.34,$2.51,$25.11,,Slivered Almonds,,Almonds - Slivered,Pantry,"Nuts, Seeds & Dried Fruit",1
 46082Kakulas BrothersSmoked Almonds12607.61,1-Mar-26,Kakulas Brothers,,Smoked Almonds,1,260,7.61,$7.61,$2.93,$29.27,,Smoked Almonds,,Almonds - Smoked,Pantry,"Nuts, Seeds & Dried Fruit",1
 46082AldiBody Wash110006.49,1-Mar-26,Aldi,,Body Wash,1,1000,6.49,$6.49,$0.65,$6.49,,Body Wash,,Body Wash,Personal Care,Body Wash,1
@@ -2810,15 +2810,15 @@
 46118SpudshedQFFROZEN BLUEBERRIE110005.99,6-Apr-26,Spudshed,QF,FROZEN BLUEBERRIE,1,1000,5.99,$5.99,$0.60,$5.99,,QFFROZEN BLUEBERRIE,QF,Blueberries - Frozen,Frozen,Fruit,1
 46118SpudshedQFFROZEN BLUEBERRIE110005.99,6-Apr-26,Spudshed,QF,FROZEN BLUEBERRIE,1,1000,5.99,$5.99,$0.60,$5.99,,QFFROZEN BLUEBERRIE,QF,Blueberries - Frozen,Frozen,Fruit,1
 46118SpudshedQFFROZEN BLUEBERRIE110005.99,6-Apr-26,Spudshed,QF,FROZEN BLUEBERRIE,1,1000,5.99,$5.99,$0.60,$5.99,,QFFROZEN BLUEBERRIE,QF,Blueberries - Frozen,Frozen,Fruit,1
-46118Spudshed–CAPSICUM RED12451.71,6-Apr-26,Spudshed,–,CAPSICUM RED,1,245,1.71,$1.71,$0.70,$6.98,,–CAPSICUM RED,,Capsicum - Red,Fresh Produce,Vegetables,1
+46118SpudshedCAPSICUM RED12451.71,6-Apr-26,Spudshed,,CAPSICUM RED,1,245,1.71,$1.71,$0.70,$6.98,,CAPSICUM RED,,Capsicum - Red,Fresh Produce,Vegetables,1
 46118SpudshedBickfordsLEMON BARL2150010.98,6-Apr-26,Spudshed,Bickfords,LEMON BARL,2,1500,10.98,$5.49,$0.73,$7.32,,BickfordsLEMON BARL,,Cordial - Lemon Barley,Beverages,Cordials & Syrups,1
-46118Spudshed–GARLIC PEELED 500G15003.49,6-Apr-26,Spudshed,–,GARLIC PEELED 500G,1,500,3.49,$3.49,$0.70,$6.98,,–GARLIC PEELED 500G,,Garlic Cloves,Fresh Produce,Fresh Herbs & Aromatics,1
-46118Spudshed–ANNABELLAS PIZZA VEG2130014.58,6-Apr-26,Spudshed,–,ANNABELLAS PIZZA VEG,2,1300,14.58,$7.29,$1.12,$11.22,,–ANNABELLAS PIZZA VEG,Annabellas,Pizza - Vegetarian,Ready Meals,Ready Meals,1
+46118SpudshedGARLIC PEELED 500G15003.49,6-Apr-26,Spudshed,,GARLIC PEELED 500G,1,500,3.49,$3.49,$0.70,$6.98,,GARLIC PEELED 500G,,Garlic Cloves,Fresh Produce,Fresh Herbs & Aromatics,1
+46118SpudshedANNABELLAS PIZZA VEG2130014.58,6-Apr-26,Spudshed,,ANNABELLAS PIZZA VEG,2,1300,14.58,$7.29,$1.12,$11.22,,ANNABELLAS PIZZA VEG,Annabellas,Pizza - Vegetarian,Ready Meals,Ready Meals,1
 46118SpudshedQFFROZEN RASPBERRIES1100011.99,6-Apr-26,Spudshed,QF,FROZEN RASPBERRIES,1,1000,11.99,$11.99,$1.20,$11.99,,QFFROZEN RASPBERRIES,QF,Raspberries - Frozen,Frozen,Fruit,1
 46118SpudshedQFFROZEN RASPBERRIES1100011.99,6-Apr-26,Spudshed,QF,FROZEN RASPBERRIES,1,1000,11.99,$11.99,$1.20,$11.99,,QFFROZEN RASPBERRIES,QF,Raspberries - Frozen,Frozen,Fruit,1
 46118SpudshedQFFROZEN RASPBERRIES1100011.99,6-Apr-26,Spudshed,QF,FROZEN RASPBERRIES,1,1000,11.99,$11.99,$1.20,$11.99,,QFFROZEN RASPBERRIES,QF,Raspberries - Frozen,Frozen,Fruit,1
 46118SpudshedMissionDELI STYLE WRAPS15.69,6-Apr-26,Spudshed,Mission,DELI STYLE WRAPS,1,,5.69,$5.69,,,,MissionDELI STYLE WRAPS,Mission,Wraps - Deli Style,Pantry,"Bread, Wraps & Dry Goods",1
-46123Kakulas BrothersKakulas BrothersGUMMI BEARS11652.62,11-Apr-26,Kakulas Brothers,Kakulas Brothers,GUMMI BEARS,1,165,2.62,$2.62,$1.59,$15.88,,Kakulas BrothersGUMMI BEARS,,,,,1
+46123Kakulas BrothersKakulas BrothersGUMMI BEARS11652.62,11-Apr-26,Kakulas Brothers,Kakulas Brothers,GUMMI BEARS,1,165,2.62,$2.62,$1.59,$15.88,,Kakulas BrothersGUMMI BEARS,,Gummy Bears,Pantry,Snacks (Pantry‑Stored),1
 46123Kakulas BrothersKakulas BrothersALMONDS SLIVERED1138534.76,11-Apr-26,Kakulas Brothers,Kakulas Brothers,ALMONDS SLIVERED,1,1385,34.76,$34.76,$2.51,$25.10,,Kakulas BrothersALMONDS SLIVERED,,Almonds - Slivered,Pantry,"Nuts, Seeds & Dried Fruit",1
 46123Kakulas BrothersKakulas BrothersALMONDS SMOKED11905.65,11-Apr-26,Kakulas Brothers,Kakulas Brothers,ALMONDS SMOKED,1,190,5.65,$5.65,$2.97,$29.74,,Kakulas BrothersALMONDS SMOKED,,Almonds - Smoked,Pantry,"Nuts, Seeds & Dried Fruit",1
 46123AldiALDIRefried Beans 454g14542.39,11-Apr-26,Aldi,ALDI,Refried Beans 454g,1,454,2.39,$2.39,$0.53,$5.26,,ALDIRefried Beans 454g,,Beans - Refried,Pantry,Canned Beans & Legumes,1
@@ -2862,3 +2862,25 @@
 46123AldiALDIWhite Lg Wraps 560g15603.69,11-Apr-26,Aldi,ALDI,White Lg Wraps 560g,1,560,3.69,$3.69,$0.66,$6.59,,ALDIWhite Lg Wraps 560g,,"Wraps - Large, White",Pantry,"Bread, Wraps & Dry Goods",1
 46123AldiALDIYog FF Greek 1kg3300011.97,11-Apr-26,Aldi,ALDI,Yog FF Greek 1kg,3,3000,11.97,$3.99,$0.40,$3.99,,ALDIYog FF Greek 1kg,,Yoghurt - Greek Natural,Dairy & Eggs,Yoghurt,1
 46123Local Fresh MarketLocal Fresh MarketZUCHINI 2 FOR $2.0024,11-Apr-26,Local Fresh Market,Local Fresh Market,ZUCHINI 2 FOR $2.00,2,,4.00,$2.00,,,,Local Fresh MarketZUCHINI 2 FOR $2.00,,Zucchini,Fresh Produce,Vegetables,1
+45749Flinders Fruit & VegCherry/Grape Tomato PP120008.94,2-Apr-25,Flinders Fruit & Veg,,Cherry/Grape Tomato PP,1,2000,8.94,$8.94,$0.45,$4.47,,Cherry/Grape Tomato PP,,Tomatoes - Grape,Fresh Produce,Vegetables,0
+45749Flinders Fruit & VegWhole Peeled Tomatoes 400g14001.66,2-Apr-25,Flinders Fruit & Veg,,Whole Peeled Tomatoes 400g,1,400,1.66,$1.66,$0.42,$4.15,,Whole Peeled Tomatoes 400g,,Tomatoes - Whole,Pantry,Canned Vegetables & Tomatoes,0
+45749Flinders Fruit & VegDiced Tomatoes 400g24003.3333,2-Apr-25,Flinders Fruit & Veg,,Diced Tomatoes 400g,2,400,3.33,$1.67,$0.83,$8.33,,Diced Tomatoes 400g,,Tomatoes - Diced,Pantry,Canned Vegetables & Tomatoes,0
+46131ALDI YokineFull Cream Milk 2L120003.19,19-Apr-26,ALDI Yokine,,Full Cream Milk 2L,1,2000,3.19,$3.19,$0.16,$1.60,,Full Cream Milk 2L,,Milk,Dairy & Eggs,Milk,1
+46131ALDI YokineSunscreen SPF50+ 500ml15005.99,19-Apr-26,ALDI Yokine,,Sunscreen SPF50+ 500ml,1,500,5.99,$5.99,$1.20,$11.98,,Sunscreen SPF50+ 500ml,,Sunscreen,Personal Care,Sun Care,1
+46131ALDI YokineTom Aus Diced 400g24002.38,19-Apr-26,ALDI Yokine,,Tom Aus Diced 400g,2,400,2.38,$1.19,$0.60,$5.95,,Tom Aus Diced 400g,,Tomatoes - Diced,Pantry,Canned Vegetables & Tomatoes,1
+46131ALDI YokineCoconut Milk14001.69,19-Apr-26,ALDI Yokine,,Coconut Milk,1,400,1.69,$1.69,$0.42,$4.23,,Coconut Milk,,Coconut Milk,Pantry,"Sauces, Pastes & Curry Bases",1
+46131ALDI YokineTuna Flavoured 95g4954.36,19-Apr-26,ALDI Yokine,,Tuna Flavoured 95g,4,95,4.36,$1.09,$4.59,$45.89,,Tuna Flavoured 95g,,Tuna - Flavoured,Pantry,Canned Fish & Seafood,1
+46131ALDI YokineCheese Cottage 500g15005.49,19-Apr-26,ALDI Yokine,,Cheese Cottage 500g,1,500,5.49,$5.49,$1.10,$10.98,,Cheese Cottage 500g,,Cheese - Cottage,Dairy & Eggs,Soft Cheese,1
+46131ALDI YokineYog Grk Sty Nat 900g390017.67,19-Apr-26,ALDI Yokine,,Yog Grk Sty Nat 900g,3,900,17.67,$5.89,$1.96,$19.63,,Yog Grk Sty Nat 900g,,Yoghurt - Greek Natural,Dairy & Eggs,Yoghurt,1
+46131ALDI YokineFrz Stir Fry Veg 850g28507.98,19-Apr-26,ALDI Yokine,,Frz Stir Fry Veg 850g,2,850,7.98,$3.99,$0.94,$9.39,,Frz Stir Fry Veg 850g,,Vegetables - Stir Fry Mix,Frozen,Vegetables,1
+46131ALDI YokineCorn Cakes Ch 125g11251.99,19-Apr-26,ALDI Yokine,,Corn Cakes Ch 125g,1,125,1.99,$1.99,$1.59,$15.92,,Corn Cakes Ch 125g,,Corn Cakes - Cheddar,Pantry,Snacks (Pantry‑Stored),1
+46131ALDI YokineFR Ckn Thg Blk CW116.54,19-Apr-26,ALDI Yokine,,FR Ckn Thg Blk CW,1,,16.54,$16.54,,,,FR Ckn Thg Blk CW,,Chicken Thigh - Free Range,Meat & Seafood,Chicken - Fresh,1
+46131ALDI YokineMRDark 85% 90%11254.99,19-Apr-26,ALDI Yokine,MR,Dark 85% 90%,1,125,4.99,$4.99,$3.99,$39.92,,MRDark 85% 90%,MR,Chocolate - Dark,Pantry,Snacks (Pantry‑Stored),1
+46128ALDI BeeliarMilk Full Cream 3L130004.65,16-Apr-26,ALDI Beeliar,,Milk Full Cream 3L,1,3000,4.65,$4.65,$0.16,$1.55,,Milk Full Cream 3L,,Milk,Dairy & Eggs,Milk,1
+46128ALDI BeeliarMRChocolate 125g11254.99,16-Apr-26,ALDI Beeliar,MR,Chocolate 125g,1,125,4.99,$4.99,$3.99,$39.92,,MRChocolate 125g,,Chocolate,Pantry,Snacks (Pantry‑Stored),1
+46131Local Fresh MarketPak Choy11.49,19-Apr-26,Local Fresh Market,,Pak Choy,1,,1.49,$1.49,,,,Pak Choy,,Pak Choy,Fresh Produce,Vegetables,1
+46131Local Fresh MarketJapan Pumpkin110853.57,19-Apr-26,Local Fresh Market,,Japan Pumpkin,1,1085,3.57,$3.57,$0.33,$3.29,,Japan Pumpkin,,Pumpkin - Japanese,Fresh Produce,Vegetables,1
+46131Local Fresh MarketGrape/Cherry Tomato17203.59,19-Apr-26,Local Fresh Market,,Grape/Cherry Tomato,1,720,3.59,$3.59,$0.50,$4.99,,Grape/Cherry Tomato,,Tomatoes - Grape,Fresh Produce,Vegetables,1
+46131Local Fresh MarketHard Tofu34.47,19-Apr-26,Local Fresh Market,,Hard Tofu,3,,4.47,$1.49,,,,Hard Tofu,,Tofu - Firm,Dairy & Eggs,Tofu,1
+46131Local Fresh MarketRed Onion14202.1,19-Apr-26,Local Fresh Market,,Red Onion,1,420,2.10,$2.10,$0.50,$5.00,,Red Onion,,Red Onion,Fresh Produce,Vegetables,1
+46131Local Fresh MarketHill River Egg 18pcs187.79,19-Apr-26,Local Fresh Market,,Hill River Egg 18pcs,18,,7.79,$0.43,,,,Hill River Egg 18pcs,Hill River,Eggs - Free Range,Dairy & Eggs,Eggs,1
